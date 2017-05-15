@@ -1,0 +1,1808 @@
+
+***********************
+2017-05-14 13:01:51
+***********************
+
+Command--Translate 
+
+Parameters--
+ File Name--standard_palindrome_true-unreach-call_ground.i
+
+Equation Pass to sympy
+T(n+1)-(T(n) + 1)=0------Base Case--T(0)=i
+
+Closed form solution return by sympy 
+i + n
+
+Original Axoims 
+i2(_n1 + 1)=i2(_n1) + 1,i2(0)=i
+ Closed Form Solution
+_n1 + i
+
+Equation Pass to sympy
+T(n+1)-(T(n) + 1)=0------Base Case--T(0)=x
+
+Closed form solution return by sympy 
+n + x
+
+Original Axoims 
+x4(_n2 + 1)=x4(_n2) + 1,x4(0)=x
+ Closed Form Solution
+_n2 + x
+
+***********************
+2017-05-14 13:01:52
+***********************
+
+Command--Prove 
+
+Parameters--
+
+ Pre Condition--[]
+ Post Condition--['d1array2(A, 0, 1) == d1array2(A, 99999, 0)']
+ Strategy--Automatically Deriving Addition Axoimes
+
+Query --
+
+d1array2(A, 0, 1) == d1array2(A, 99999, 0)
+
+System try to prove 
+d1array2(A, 0, 1) == d1array2(A, 99999, 0)
+
+Query to z3 
+from z3 import *
+set_param(proof=True)
+_p1=Int('_p1')
+_p2=Int('_p2')
+_n=Int('_n')
+arraySort = DeclareSort('arraySort')
+_f=Function('_f',IntSort(),IntSort())
+A=Const('A',arraySort)
+_n2=Int('_n2')
+main=Int('main')
+i1=Int('i1')
+_N1=Const('_N1',IntSort())
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+A1=Const('A1',arraySort)
+_N2=Const('_N2',IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+_n1=Int('_n1')
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+x1=Int('x1')
+_x1=Const('_x1',arraySort)
+_x2=Int('_x2')
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+d1array5=Function('d1array5',arraySort,IntSort(),IntSort(),IntSort())
+main=Int('main')
+__VERIFIER_assert=Function('__VERIFIER_assert',RealSort(),IntSort())
+_k1=Int('_k1')
+_L1=Int('_L1')
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+_s=Solver()
+_s.add(ForAll([_n],Implies(_n>=0, _f(_n)==_n)))
+_s.set("timeout",60000)
+_s.add(A1 == A)
+_s.add(ForAll([_n1],Implies(_n1>=0,d1array2(A, _n1, _n1 + 1) == d1array2(A, -_n1 + 99999, _n1))))
+_s.add(ForAll([_x2],Implies(_x2>=0,d1array2(A, _x2, 0) == d1array(A, _x2))))
+_s.add(_N1 >= 50000)
+_s.add(ForAll([_n1],Implies(And(_n1 < _N1,_n1>=0),(_f(_n1)<((100000)/(2))))))
+_s.add(Or(_N1==0,_N1 - 1 < 50000))
+_s.add(A1 == A)
+_s.add(_k1>=0)
+_s.add(Not(d1array2(A, 0, 1) == d1array2(A, 99999, 0)))
+if sat==_s.check():
+	print "Counter Example"
+	print _s.model()
+	witnessXmlStr=['<?xml version="1.0" encoding="UTF-8" standalone="no"?><graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><key attr.name="isEntryNode" attr.type="boolean" for="node" id="entry"><default>false</default></key><key attr.name="isViolationNode" attr.type="boolean" for="node" id="violation"><default>false</default></key><key attr.name="witness-type" attr.type="string" for="graph" id="witness-type"/><key attr.name="sourcecodelang" attr.type="string" for="graph" id="sourcecodelang"/><key attr.name="producer" attr.type="string" for="graph" id="producer"/><key attr.name="specification" attr.type="string" for="graph" id="specification"/><key attr.name="programFile" attr.type="string" for="graph" id="programfile"/><key attr.name="programHash" attr.type="string" for="graph" id="programhash"/><key attr.name="memoryModel" attr.type="string" for="graph" id="memorymodel"/><key attr.name="architecture" attr.type="string" for="graph" id="architecture"/><key attr.name="startline" attr.type="int" for="edge" id="startline"/><key attr.name="assumption" attr.type="string" for="edge" id="assumption"/><key attr.name="assumption.scope" attr.type="string" for="edge" id="assumption.scope"/><key attr.name="assumption.resultfunction" attr.type="string" for="edge" id="assumption.resultfunction"/><graph edgedefault="directed"><data key="witness-type">violation_witness</data><data key="sourcecodelang">C</data><data key="producer">CPAchecker 1.6.1-svn</data><data key="specification">CHECK( init(main()), LTL(G ! call(__VERIFIER_error())) )</data><data key="programfile">standard_palindrome_true-unreach-call_ground.i</data><data key="programhash">1776ed2413d170f227b69d8c79ba700d31db6f75</data><data key="memorymodel">precise</data><data key="architecture">32bit</data><node id="entry"><data key="entry">true</data></node><node id="error"><data key="violation">true</data></node><edge source="entry" target="error">', '<data key="assumption.scope">main</data><data key="assumption.resultfunction">__VERIFIER_nondet_int</data></edge></graph></graphml>', 'main', 'standard_palindrome_true-unreach-call_ground.i']
+	middle=''
+	for element in _s.model():
+		if str(element)==witnessXmlStr[2]:
+			middle+='<data key="assumption">'+'\\'+'result=='+str(_s.model()[element])+'</data>'
+	file = open(witnessXmlStr[3]+'_witness.graphml', 'w')
+	file.write(witnessXmlStr[0]+middle+witnessXmlStr[1])
+	file.close()
+elif unsat==_s.check():
+	_s.check()
+	try:
+		if os.path.isfile('j2llogs.logs'):
+			file = open('j2llogs.logs', 'a')
+			file.write("\n**************\nProof Details\n**************\n"+str(_s.proof().children())+"\n")
+			file.close()
+		else:
+			file = open('j2llogs.logs', 'w')
+			file.write("\n**************\nProof Details\n**************\n"+str(_s.proof().children())+"\n")
+			file.close()
+	except Exception as e:
+		file = open('j2llogs.logs', 'a')
+		file.write("\n**************\nProof Details\n**************\n"+"Error"+"\n")
+		file.close()
+	print "Successfully Proved"
+else:
+	print "Failed To Prove"
+
+**************
+Proof Details
+**************
+[mp(quant-inst(Or(Not(ForAll(_n1,
+                            Or(Not(_n1 >= 0),
+                               d1array2(A, _n1, 1 + _n1) ==
+                               d1array2(A,
+                                        99999 + -1*_n1,
+                                        _n1)))),
+                 Or(Not(0 >= 0),
+                    d1array2(A, 0, 1 + 0) ==
+                    d1array2(A, 99999 + -1*0, 0)))),
+   trans(monotonicity(trans(monotonicity(trans(monotonicity(rewrite((0 >=
+                                        0) ==
+                                        True),
+                                        Not(0 >= 0) ==
+                                        Not(True)),
+                                        rewrite(Not(True) ==
+                                        False),
+                                        Not(0 >= 0) == False),
+                                        monotonicity(monotonicity(rewrite(1 +
+                                        0 ==
+                                        1),
+                                        d1array2(A,
+                                        0,
+                                        1 + 0) ==
+                                        d1array2(A, 0, 1)),
+                                        monotonicity(trans(monotonicity(rewrite(-1*
+                                        0 ==
+                                        0),
+                                        99999 + -1*0 ==
+                                        99999 + 0),
+                                        rewrite(99999 + 0 ==
+                                        99999),
+                                        99999 + -1*0 ==
+                                        99999),
+                                        d1array2(A,
+                                        99999 + -1*0,
+                                        0) ==
+                                        d1array2(A,
+                                        99999,
+                                        0)),
+                                        (d1array2(A,
+                                        0,
+                                        1 + 0) ==
+                                        d1array2(A,
+                                        99999 + -1*0,
+                                        0)) ==
+                                        (d1array2(A, 0, 1) ==
+                                        d1array2(A,
+                                        99999,
+                                        0))),
+                                        Or(Not(0 >= 0),
+                                        d1array2(A,
+                                        0,
+                                        1 + 0) ==
+                                        d1array2(A,
+                                        99999 + -1*0,
+                                        0)) ==
+                                        Or(False,
+                                        d1array2(A, 0, 1) ==
+                                        d1array2(A,
+                                        99999,
+                                        0))),
+                            rewrite(Or(False,
+                                       d1array2(A, 0, 1) ==
+                                       d1array2(A, 99999, 0)) ==
+                                    (d1array2(A, 0, 1) ==
+                                     d1array2(A, 99999, 0))),
+                            Or(Not(0 >= 0),
+                               d1array2(A, 0, 1 + 0) ==
+                               d1array2(A, 99999 + -1*0, 0)) ==
+                            (d1array2(A, 0, 1) ==
+                             d1array2(A, 99999, 0))),
+                      Or(Not(ForAll(_n1,
+                                    Or(Not(_n1 >= 0),
+                                       d1array2(A,
+                                        _n1,
+                                        1 + _n1) ==
+                                       d1array2(A,
+                                        99999 + -1*_n1,
+                                        _n1)))),
+                         Or(Not(0 >= 0),
+                            d1array2(A, 0, 1 + 0) ==
+                            d1array2(A, 99999 + -1*0, 0))) ==
+                      Or(Not(ForAll(_n1,
+                                    Or(Not(_n1 >= 0),
+                                       d1array2(A,
+                                        _n1,
+                                        1 + _n1) ==
+                                       d1array2(A,
+                                        99999 + -1*_n1,
+                                        _n1)))),
+                         d1array2(A, 0, 1) ==
+                         d1array2(A, 99999, 0))),
+         rewrite(Or(Not(ForAll(_n1,
+                               Or(Not(_n1 >= 0),
+                                  d1array2(A, _n1, 1 + _n1) ==
+                                  d1array2(A,
+                                        99999 + -1*_n1,
+                                        _n1)))),
+                    d1array2(A, 0, 1) ==
+                    d1array2(A, 99999, 0)) ==
+                 Or(Not(ForAll(_n1,
+                               Or(Not(_n1 >= 0),
+                                  d1array2(A, _n1, 1 + _n1) ==
+                                  d1array2(A,
+                                        99999 + -1*_n1,
+                                        _n1)))),
+                    d1array2(A, 0, 1) ==
+                    d1array2(A, 99999, 0))),
+         Or(Not(ForAll(_n1,
+                       Or(Not(_n1 >= 0),
+                          d1array2(A, _n1, 1 + _n1) ==
+                          d1array2(A, 99999 + -1*_n1, _n1)))),
+            Or(Not(0 >= 0),
+               d1array2(A, 0, 1 + 0) ==
+               d1array2(A, 99999 + -1*0, 0))) ==
+         Or(Not(ForAll(_n1,
+                       Or(Not(_n1 >= 0),
+                          d1array2(A, _n1, 1 + _n1) ==
+                          d1array2(A, 99999 + -1*_n1, _n1)))),
+            d1array2(A, 0, 1) == d1array2(A, 99999, 0))),
+   Or(Not(ForAll(_n1,
+                 Or(Not(_n1 >= 0),
+                    d1array2(A, _n1, 1 + _n1) ==
+                    d1array2(A, 99999 + -1*_n1, _n1)))),
+      d1array2(A, 0, 1) == d1array2(A, 99999, 0))), mp(mp~(mp(asserted(ForAll(_n1,
+                          Implies(_n1 >= 0,
+                                  d1array2(A, _n1, _n1 + 1) ==
+                                  d1array2(A,
+                                        -_n1 + 99999,
+                                        _n1)))),
+          quant-intro(trans(monotonicity(monotonicity(monotonicity(rewrite(Var(0) +
+                                        1 ==
+                                        1 + Var(0)),
+                                        d1array2(A,
+                                        Var(0),
+                                        Var(0) + 1) ==
+                                        d1array2(A,
+                                        Var(0),
+                                        1 + Var(0))),
+                                        monotonicity(trans(monotonicity(rewrite(-Var(0) ==
+                                        -1*Var(0)),
+                                        -Var(0) + 99999 ==
+                                        -1*Var(0) + 99999),
+                                        rewrite(-1*Var(0) +
+                                        99999 ==
+                                        99999 + -1*Var(0)),
+                                        -Var(0) + 99999 ==
+                                        99999 + -1*Var(0)),
+                                        d1array2(A,
+                                        -Var(0) + 99999,
+                                        Var(0)) ==
+                                        d1array2(A,
+                                        99999 + -1*Var(0),
+                                        Var(0))),
+                                        (d1array2(A,
+                                        Var(0),
+                                        Var(0) + 1) ==
+                                        d1array2(A,
+                                        -Var(0) + 99999,
+                                        Var(0))) ==
+                                        (d1array2(A,
+                                        Var(0),
+                                        1 + Var(0)) ==
+                                        d1array2(A,
+                                        99999 + -1*Var(0),
+                                        Var(0)))),
+                                        Implies(Var(0) >= 0,
+                                        d1array2(A,
+                                        Var(0),
+                                        Var(0) + 1) ==
+                                        d1array2(A,
+                                        -Var(0) + 99999,
+                                        Var(0))) ==
+                                        Implies(Var(0) >= 0,
+                                        d1array2(A,
+                                        Var(0),
+                                        1 + Var(0)) ==
+                                        d1array2(A,
+                                        99999 + -1*Var(0),
+                                        Var(0)))),
+                            rewrite(Implies(Var(0) >= 0,
+                                        d1array2(A,
+                                        Var(0),
+                                        1 + Var(0)) ==
+                                        d1array2(A,
+                                        99999 + -1*Var(0),
+                                        Var(0))) ==
+                                    Or(Not(Var(0) >= 0),
+                                       d1array2(A,
+                                        Var(0),
+                                        1 + Var(0)) ==
+                                       d1array2(A,
+                                        99999 + -1*Var(0),
+                                        Var(0)))),
+                            Implies(Var(0) >= 0,
+                                    d1array2(A,
+                                        Var(0),
+                                        Var(0) + 1) ==
+                                    d1array2(A,
+                                        -Var(0) + 99999,
+                                        Var(0))) ==
+                            Or(Not(Var(0) >= 0),
+                               d1array2(A,
+                                        Var(0),
+                                        1 + Var(0)) ==
+                               d1array2(A,
+                                        99999 + -1*Var(0),
+                                        Var(0)))),
+                      (ForAll(_n1,
+                              Implies(_n1 >= 0,
+                                      d1array2(A,
+                                        _n1,
+                                        _n1 + 1) ==
+                                      d1array2(A,
+                                        -_n1 + 99999,
+                                        _n1)))) ==
+                      (ForAll(_n1,
+                              Or(Not(_n1 >= 0),
+                                 d1array2(A, _n1, 1 + _n1) ==
+                                 d1array2(A,
+                                        99999 + -1*_n1,
+                                        _n1))))),
+          ForAll(_n1,
+                 Or(Not(_n1 >= 0),
+                    d1array2(A, _n1, 1 + _n1) ==
+                    d1array2(A, 99999 + -1*_n1, _n1)))),
+       nnf-pos(refl(~(Or(Not(Var(0) >= 0),
+                         d1array2(A, Var(0), 1 + Var(0)) ==
+                         d1array2(A,
+                                  99999 + -1*Var(0),
+                                  Var(0))),
+                      Or(Not(Var(0) >= 0),
+                         d1array2(A, Var(0), 1 + Var(0)) ==
+                         d1array2(A,
+                                  99999 + -1*Var(0),
+                                  Var(0))))),
+               ~(ForAll(_n1,
+                        Or(Not(_n1 >= 0),
+                           d1array2(A, _n1, 1 + _n1) ==
+                           d1array2(A, 99999 + -1*_n1, _n1))),
+                 ForAll(_n1,
+                        Or(Not(_n1 >= 0),
+                           d1array2(A, _n1, 1 + _n1) ==
+                           d1array2(A, 99999 + -1*_n1, _n1))))),
+       ForAll(_n1,
+              Or(Not(_n1 >= 0),
+                 d1array2(A, _n1, 1 + _n1) ==
+                 d1array2(A, 99999 + -1*_n1, _n1)))),
+   quant-intro(refl(Or(Not(Var(0) >= 0),
+                       d1array2(A, Var(0), 1 + Var(0)) ==
+                       d1array2(A,
+                                99999 + -1*Var(0),
+                                Var(0))) ==
+                    Or(Not(Var(0) >= 0),
+                       d1array2(A, Var(0), 1 + Var(0)) ==
+                       d1array2(A,
+                                99999 + -1*Var(0),
+                                Var(0)))),
+               (ForAll(_n1,
+                       Or(Not(_n1 >= 0),
+                          d1array2(A, _n1, 1 + _n1) ==
+                          d1array2(A, 99999 + -1*_n1, _n1)))) ==
+               (ForAll(_n1,
+                       Or(Not(_n1 >= 0),
+                          d1array2(A, _n1, 1 + _n1) ==
+                          d1array2(A, 99999 + -1*_n1, _n1))))),
+   ForAll(_n1,
+          Or(Not(_n1 >= 0),
+             d1array2(A, _n1, 1 + _n1) ==
+             d1array2(A, 99999 + -1*_n1, _n1)))), asserted(Not(d1array2(A, 0, 1) == d1array2(A, 99999, 0))), False]
+
+Result 
+Successfully Proved
+
+
+Result --Successfully Proved
+
+***********************
+2017-05-14 13:01:53
+***********************
+
+Command--Prove 
+
+Parameters--
+
+ Pre Condition--[]
+ Post Condition--['Implies((d1array2(A, _k1, _k1 + 1)==d1array2(A, -_k1 + 99999, _k1)),(d1array2(A, _k1 + 1, _k1 + 2)==d1array2(A, -_k1 + 100000, _k1 + 1)))']
+ Strategy--Automatically Deriving Addition Axoimes
+
+Query --
+
+Implies((d1array2(A, _k1, _k1 + 1)==d1array2(A, -_k1 + 99999, _k1)),(d1array2(A, _k1 + 1, _k1 + 2)==d1array2(A, -_k1 + 100000, _k1 + 1)))
+
+System try to prove 
+Implies((d1array2(A, _k1, _k1 + 1)==d1array2(A, -_k1 + 99999, _k1)),(d1array2(A, _k1 + 1, _k1 + 2)==d1array2(A, -_k1 + 100000, _k1 + 1)))
+
+Query to z3 
+from z3 import *
+set_param(proof=True)
+_p1=Int('_p1')
+_p2=Int('_p2')
+_n=Int('_n')
+arraySort = DeclareSort('arraySort')
+_f=Function('_f',IntSort(),IntSort())
+A=Const('A',arraySort)
+_n2=Int('_n2')
+main=Int('main')
+i1=Int('i1')
+_N1=Const('_N1',IntSort())
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+A1=Const('A1',arraySort)
+_N2=Const('_N2',IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+_n1=Int('_n1')
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+x1=Int('x1')
+_x1=Const('_x1',arraySort)
+_x2=Int('_x2')
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+d1array5=Function('d1array5',arraySort,IntSort(),IntSort(),IntSort())
+main=Int('main')
+__VERIFIER_assert=Function('__VERIFIER_assert',RealSort(),IntSort())
+_k1=Int('_k1')
+_L1=Int('_L1')
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+_s=Solver()
+_s.add(ForAll([_n],Implies(_n>=0, _f(_n)==_n)))
+_s.set("timeout",60000)
+_s.add(A1 == A)
+_s.add(ForAll([_n1],Implies(_n1>=0,d1array2(A, _n1, _n1 + 1) == d1array2(A, -_n1 + 99999, _n1))))
+_s.add(ForAll([_x2],Implies(_x2>=0,d1array2(A, _x2, 0) == d1array(A, _x2))))
+_s.add(_N1 >= 50000)
+_s.add(ForAll([_n1],Implies(And(_n1 < _N1,_n1>=0),(_f(_n1)<((100000)/(2))))))
+_s.add(Or(_N1==0,_N1 - 1 < 50000))
+_s.add(A1 == A)
+_s.add(_k1>=0)
+_s.add(Not(Implies((d1array2(A, _k1, _k1 + 1)==d1array2(A, -_k1 + 99999, _k1)),(d1array2(A, _k1 + 1, _k1 + 2)==d1array2(A, -_k1 + 100000, _k1 + 1)))))
+if sat==_s.check():
+	print "Counter Example"
+	print _s.model()
+	witnessXmlStr=['<?xml version="1.0" encoding="UTF-8" standalone="no"?><graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><key attr.name="isEntryNode" attr.type="boolean" for="node" id="entry"><default>false</default></key><key attr.name="isViolationNode" attr.type="boolean" for="node" id="violation"><default>false</default></key><key attr.name="witness-type" attr.type="string" for="graph" id="witness-type"/><key attr.name="sourcecodelang" attr.type="string" for="graph" id="sourcecodelang"/><key attr.name="producer" attr.type="string" for="graph" id="producer"/><key attr.name="specification" attr.type="string" for="graph" id="specification"/><key attr.name="programFile" attr.type="string" for="graph" id="programfile"/><key attr.name="programHash" attr.type="string" for="graph" id="programhash"/><key attr.name="memoryModel" attr.type="string" for="graph" id="memorymodel"/><key attr.name="architecture" attr.type="string" for="graph" id="architecture"/><key attr.name="startline" attr.type="int" for="edge" id="startline"/><key attr.name="assumption" attr.type="string" for="edge" id="assumption"/><key attr.name="assumption.scope" attr.type="string" for="edge" id="assumption.scope"/><key attr.name="assumption.resultfunction" attr.type="string" for="edge" id="assumption.resultfunction"/><graph edgedefault="directed"><data key="witness-type">violation_witness</data><data key="sourcecodelang">C</data><data key="producer">CPAchecker 1.6.1-svn</data><data key="specification">CHECK( init(main()), LTL(G ! call(__VERIFIER_error())) )</data><data key="programfile">standard_palindrome_true-unreach-call_ground.i</data><data key="programhash">1776ed2413d170f227b69d8c79ba700d31db6f75</data><data key="memorymodel">precise</data><data key="architecture">32bit</data><node id="entry"><data key="entry">true</data></node><node id="error"><data key="violation">true</data></node><edge source="entry" target="error">', '<data key="assumption.scope">main</data><data key="assumption.resultfunction">__VERIFIER_nondet_int</data></edge></graph></graphml>', 'main', 'standard_palindrome_true-unreach-call_ground.i']
+	middle=''
+	for element in _s.model():
+		if str(element)==witnessXmlStr[2]:
+			middle+='<data key="assumption">'+'\\'+'result=='+str(_s.model()[element])+'</data>'
+	file = open(witnessXmlStr[3]+'_witness.graphml', 'w')
+	file.write(witnessXmlStr[0]+middle+witnessXmlStr[1])
+	file.close()
+elif unsat==_s.check():
+	_s.check()
+	try:
+		if os.path.isfile('j2llogs.logs'):
+			file = open('j2llogs.logs', 'a')
+			file.write("\n**************\nProof Details\n**************\n"+str(_s.proof().children())+"\n")
+			file.close()
+		else:
+			file = open('j2llogs.logs', 'w')
+			file.write("\n**************\nProof Details\n**************\n"+str(_s.proof().children())+"\n")
+			file.close()
+	except Exception as e:
+		file = open('j2llogs.logs', 'a')
+		file.write("\n**************\nProof Details\n**************\n"+"Error"+"\n")
+		file.close()
+	print "Successfully Proved"
+else:
+	print "Failed To Prove"
+
+Result 
+Counter Example
+[A1 = arraySort!val!0,
+ A = arraySort!val!0,
+ _N1 = 50000,
+ _k1 = 1236,
+ k!7 = [else ->
+        If(Var(0) >= 1235,
+           If(Var(0) >= 1236,
+              If(Var(0) >= 1237,
+                 If(Var(0) >= 1238,
+                    If(Var(0) >= 98762,
+                       If(Var(0) >= 98763,
+                          If(Var(0) >= 98764, 98764, 98763),
+                          98762),
+                       1238),
+                    1237),
+                 1236),
+              1235),
+           0)],
+ _f = [else -> Var(0)],
+ d1array = [else -> d1array2(arraySort!val!0, Var(1), 0)],
+ d1array2!9 = [(arraySort!val!0, 1237, 1238) -> 6,
+               (arraySort!val!0, 98764, 1237) -> 5,
+               (arraySort!val!0, 98762, 1237) -> 6,
+               else -> 4],
+ d1array2 = [else ->
+             d1array2!9(Var(0), k!7(Var(1)), k!7(Var(2)))]]
+
+
+Result --Counter Example
+[A1 = arraySort!val!0,
+ A = arraySort!val!0,
+ _N1 = 50000,
+ _k1 = 1236,
+ k!7 = [else ->
+        If(Var(0) >= 1235,
+           If(Var(0) >= 1236,
+              If(Var(0) >= 1237,
+                 If(Var(0) >= 1238,
+                    If(Var(0) >= 98762,
+                       If(Var(0) >= 98763,
+                          If(Var(0) >= 98764, 98764, 98763),
+                          98762),
+                       1238),
+                    1237),
+                 1236),
+              1235),
+           0)],
+ _f = [else -> Var(0)],
+ d1array = [else -> d1array2(arraySort!val!0, Var(1), 0)],
+ d1array2!9 = [(arraySort!val!0, 1237, 1238) -> 6,
+               (arraySort!val!0, 98764, 1237) -> 5,
+               (arraySort!val!0, 98762, 1237) -> 6,
+               else -> 4],
+ d1array2 = [else ->
+             d1array2!9(Var(0), k!7(Var(1)), k!7(Var(2)))]]
+
+
+***********************
+2017-05-14 13:01:53
+***********************
+
+Command--Prove 
+
+Parameters--
+
+ Pre Condition--[]
+ Post Condition--['ForAll([_x2,_n1],Implies(And(_x2>=0,_n1>=0),d1array4(A, _n1, 0) == d1array(A, _x2)))']
+ Strategy--Automatically Deriving Addition Axoimes
+
+Query --
+
+ForAll([_x2,_n1],Implies(And(_x2>=0,_n1>=0),d1array4(A, _n1, 0) == d1array(A, _x2)))
+
+System try to prove 
+ForAll([_x2,_n1],Implies(And(_x2>=0,_n1>=0),d1array4(A, _n1, 0) == d1array(A, _x2)))
+
+Query to z3 
+from z3 import *
+set_param(proof=True)
+_p1=Int('_p1')
+_p2=Int('_p2')
+_n=Int('_n')
+arraySort = DeclareSort('arraySort')
+_f=Function('_f',IntSort(),IntSort())
+A=Const('A',arraySort)
+_n2=Int('_n2')
+main=Int('main')
+i1=Int('i1')
+_N1=Const('_N1',IntSort())
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+A1=Const('A1',arraySort)
+_N2=Const('_N2',IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+_n1=Int('_n1')
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+x1=Int('x1')
+_x1=Const('_x1',arraySort)
+_x2=Int('_x2')
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+d1array5=Function('d1array5',arraySort,IntSort(),IntSort(),IntSort())
+main=Int('main')
+__VERIFIER_assert=Function('__VERIFIER_assert',RealSort(),IntSort())
+_k1=Int('_k1')
+_L1=Int('_L1')
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+_k2=Int('_k2')
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+_s=Solver()
+_s.add(ForAll([_n],Implies(_n>=0, _f(_n)==_n)))
+_s.set("timeout",60000)
+_s.add(A1 == A)
+_s.add(ForAll([_x2,_n2],Implies(And(_x2>=0,_n2>=0),d1array4(A, _x2, _n2 + 1) == d1array4(A, _x2, _n2))))
+_s.add(ForAll([_x2],Implies(_x2>=0,d1array4(A, _x2, 0) == d1array2(A, _x2, _N1))))
+_s.add(_N2 >= 50000)
+_s.add(ForAll([_n2],Implies(And(_n2 < _N2,_n2>=0),(_f(_n2)<((100000)/(2))))))
+_s.add(Or(_N2==0,_N2 - 1 < 50000))
+_s.add(A1 == A)
+_s.add(_k1>=0)
+_s.add(_k2>=0)
+_s.add(Not(ForAll([_x2,_n1],Implies(And(_x2>=0,_n1>=0),d1array4(A, _n1, 0) == d1array(A, _x2)))))
+if sat==_s.check():
+	print "Counter Example"
+	print _s.model()
+	witnessXmlStr=['<?xml version="1.0" encoding="UTF-8" standalone="no"?><graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><key attr.name="isEntryNode" attr.type="boolean" for="node" id="entry"><default>false</default></key><key attr.name="isViolationNode" attr.type="boolean" for="node" id="violation"><default>false</default></key><key attr.name="witness-type" attr.type="string" for="graph" id="witness-type"/><key attr.name="sourcecodelang" attr.type="string" for="graph" id="sourcecodelang"/><key attr.name="producer" attr.type="string" for="graph" id="producer"/><key attr.name="specification" attr.type="string" for="graph" id="specification"/><key attr.name="programFile" attr.type="string" for="graph" id="programfile"/><key attr.name="programHash" attr.type="string" for="graph" id="programhash"/><key attr.name="memoryModel" attr.type="string" for="graph" id="memorymodel"/><key attr.name="architecture" attr.type="string" for="graph" id="architecture"/><key attr.name="startline" attr.type="int" for="edge" id="startline"/><key attr.name="assumption" attr.type="string" for="edge" id="assumption"/><key attr.name="assumption.scope" attr.type="string" for="edge" id="assumption.scope"/><key attr.name="assumption.resultfunction" attr.type="string" for="edge" id="assumption.resultfunction"/><graph edgedefault="directed"><data key="witness-type">violation_witness</data><data key="sourcecodelang">C</data><data key="producer">CPAchecker 1.6.1-svn</data><data key="specification">CHECK( init(main()), LTL(G ! call(__VERIFIER_error())) )</data><data key="programfile">standard_palindrome_true-unreach-call_ground.i</data><data key="programhash">1776ed2413d170f227b69d8c79ba700d31db6f75</data><data key="memorymodel">precise</data><data key="architecture">32bit</data><node id="entry"><data key="entry">true</data></node><node id="error"><data key="violation">true</data></node><edge source="entry" target="error">', '<data key="assumption.scope">main</data><data key="assumption.resultfunction">__VERIFIER_nondet_int</data></edge></graph></graphml>', 'main', 'standard_palindrome_true-unreach-call_ground.i']
+	middle=''
+	for element in _s.model():
+		if str(element)==witnessXmlStr[2]:
+			middle+='<data key="assumption">'+'\\'+'result=='+str(_s.model()[element])+'</data>'
+	file = open(witnessXmlStr[3]+'_witness.graphml', 'w')
+	file.write(witnessXmlStr[0]+middle+witnessXmlStr[1])
+	file.close()
+elif unsat==_s.check():
+	_s.check()
+	try:
+		if os.path.isfile('j2llogs.logs'):
+			file = open('j2llogs.logs', 'a')
+			file.write("\n**************\nProof Details\n**************\n"+str(_s.proof().children())+"\n")
+			file.close()
+		else:
+			file = open('j2llogs.logs', 'w')
+			file.write("\n**************\nProof Details\n**************\n"+str(_s.proof().children())+"\n")
+			file.close()
+	except Exception as e:
+		file = open('j2llogs.logs', 'a')
+		file.write("\n**************\nProof Details\n**************\n"+"Error"+"\n")
+		file.close()
+	print "Successfully Proved"
+else:
+	print "Failed To Prove"
+
+Result 
+Counter Example
+[A = arraySort!val!0,
+ _x2!1 = 38,
+ _n1!0 = 7719,
+ A1 = arraySort!val!0,
+ _k2 = 0,
+ _N1 = 23,
+ _k1 = 0,
+ _N2 = 50000,
+ d1array2 = [(arraySort!val!0, 7719, 23) -> 21,
+             else -> d1array4(arraySort!val!0, Var(1), 0)],
+ _f = [else -> Var(0)],
+ d1array = [else -> 22],
+ d1array4 = [else -> 21]]
+
+
+Result --Counter Example
+[A = arraySort!val!0,
+ _x2!1 = 38,
+ _n1!0 = 7719,
+ A1 = arraySort!val!0,
+ _k2 = 0,
+ _N1 = 23,
+ _k1 = 0,
+ _N2 = 50000,
+ d1array2 = [(arraySort!val!0, 7719, 23) -> 21,
+             else -> d1array4(arraySort!val!0, Var(1), 0)],
+ _f = [else -> Var(0)],
+ d1array = [else -> 22],
+ d1array4 = [else -> 21]]
+
+
+***********************
+2017-05-14 13:01:54
+***********************
+
+Command--Prove 
+
+Parameters--
+
+ Pre Condition--[]
+ Post Condition--['ForAll([_n2],Implies(_n2>=0,(d1array4(A, _n2, _N2)==d1array4(A, -_n2 + 99999, _N2))))']
+ Strategy--Automatically Deriving Addition Axoimes
+
+Query --
+
+ForAll([_n2],Implies(_n2>=0,(d1array4(A, _n2, _N2)==d1array4(A, -_n2 + 99999, _N2))))
+
+System try to prove 
+ForAll([_n2],Implies(_n2>=0,(d1array4(A, _n2, _N2)==d1array4(A, -_n2 + 99999, _N2))))
+
+Query to z3 
+from z3 import *
+set_param(proof=True)
+_p1=Int('_p1')
+_p2=Int('_p2')
+_n=Int('_n')
+arraySort = DeclareSort('arraySort')
+_f=Function('_f',IntSort(),IntSort())
+A=Const('A',arraySort)
+_n2=Int('_n2')
+main=Int('main')
+i1=Int('i1')
+_N1=Const('_N1',IntSort())
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+A1=Const('A1',arraySort)
+_N2=Const('_N2',IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+_n1=Int('_n1')
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+x1=Int('x1')
+_x1=Const('_x1',arraySort)
+_x2=Int('_x2')
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+d1array5=Function('d1array5',arraySort,IntSort(),IntSort(),IntSort())
+main=Int('main')
+__VERIFIER_assert=Function('__VERIFIER_assert',RealSort(),IntSort())
+_k1=Int('_k1')
+_L1=Int('_L1')
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+_k2=Int('_k2')
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+_s=Solver()
+_s.add(ForAll([_n],Implies(_n>=0, _f(_n)==_n)))
+_s.set("timeout",60000)
+_s.add(A1 == A)
+_s.add(i1 == _N1)
+_s.add(x1 == _N2)
+_s.add(main == 0)
+_s.add(ForAll([_x2],Implies(_x2>=0,d1array1(A, _x2) == d1array4(A, _x2, _N2))))
+_s.add(ForAll([_n1],Implies(_n1>=0,d1array2(A, _n1, _n1 + 1) == d1array2(A, -_n1 + 99999, _n1))))
+_s.add(ForAll([_x2],Implies(_x2>=0,d1array2(A, _x2, 0) == d1array(A, _x2))))
+_s.add(_N1 >= 50000)
+_s.add(ForAll([_n1],Implies(And(_n1 < _N1,_n1>=0),(_f(_n1)<((100000)/(2))))))
+_s.add(Or(_N1==0,_N1 - 1 < 50000))
+_s.add(ForAll([_x2,_n2],Implies(And(_x2>=0,_n2>=0),d1array4(A, _x2, _n2 + 1) == d1array4(A, _x2, _n2))))
+_s.add(ForAll([_x2],Implies(_x2>=0,d1array4(A, _x2, 0) == d1array2(A, _x2, _N1))))
+_s.add(_N2 >= 50000)
+_s.add(ForAll([_n2],Implies(And(_n2 < _N2,_n2>=0),(_f(_n2)<((100000)/(2))))))
+_s.add(Or(_N2==0,_N2 - 1 < 50000))
+_s.add(A1 == A)
+_s.add(_k1>=0)
+_s.add(_k2>=0)
+_s.add(_N1>=0)
+_s.add(_N2>=0)
+_s.add(Not(ForAll([_n2],Implies(_n2>=0,(d1array4(A, _n2, _N2)==d1array4(A, -_n2 + 99999, _N2))))))
+if sat==_s.check():
+	print "Counter Example"
+	print _s.model()
+	witnessXmlStr=['<?xml version="1.0" encoding="UTF-8" standalone="no"?><graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><key attr.name="isEntryNode" attr.type="boolean" for="node" id="entry"><default>false</default></key><key attr.name="isViolationNode" attr.type="boolean" for="node" id="violation"><default>false</default></key><key attr.name="witness-type" attr.type="string" for="graph" id="witness-type"/><key attr.name="sourcecodelang" attr.type="string" for="graph" id="sourcecodelang"/><key attr.name="producer" attr.type="string" for="graph" id="producer"/><key attr.name="specification" attr.type="string" for="graph" id="specification"/><key attr.name="programFile" attr.type="string" for="graph" id="programfile"/><key attr.name="programHash" attr.type="string" for="graph" id="programhash"/><key attr.name="memoryModel" attr.type="string" for="graph" id="memorymodel"/><key attr.name="architecture" attr.type="string" for="graph" id="architecture"/><key attr.name="startline" attr.type="int" for="edge" id="startline"/><key attr.name="assumption" attr.type="string" for="edge" id="assumption"/><key attr.name="assumption.scope" attr.type="string" for="edge" id="assumption.scope"/><key attr.name="assumption.resultfunction" attr.type="string" for="edge" id="assumption.resultfunction"/><graph edgedefault="directed"><data key="witness-type">violation_witness</data><data key="sourcecodelang">C</data><data key="producer">CPAchecker 1.6.1-svn</data><data key="specification">CHECK( init(main()), LTL(G ! call(__VERIFIER_error())) )</data><data key="programfile">standard_palindrome_true-unreach-call_ground.i</data><data key="programhash">1776ed2413d170f227b69d8c79ba700d31db6f75</data><data key="memorymodel">precise</data><data key="architecture">32bit</data><node id="entry"><data key="entry">true</data></node><node id="error"><data key="violation">true</data></node><edge source="entry" target="error">', '<data key="assumption.scope">main</data><data key="assumption.resultfunction">__VERIFIER_nondet_int</data></edge></graph></graphml>', 'main', 'standard_palindrome_true-unreach-call_ground.i']
+	middle=''
+	for element in _s.model():
+		if str(element)==witnessXmlStr[2]:
+			middle+='<data key="assumption">'+'\\'+'result=='+str(_s.model()[element])+'</data>'
+	file = open(witnessXmlStr[3]+'_witness.graphml', 'w')
+	file.write(witnessXmlStr[0]+middle+witnessXmlStr[1])
+	file.close()
+elif unsat==_s.check():
+	_s.check()
+	try:
+		if os.path.isfile('j2llogs.logs'):
+			file = open('j2llogs.logs', 'a')
+			file.write("\n**************\nProof Details\n**************\n"+str(_s.proof().children())+"\n")
+			file.close()
+		else:
+			file = open('j2llogs.logs', 'w')
+			file.write("\n**************\nProof Details\n**************\n"+str(_s.proof().children())+"\n")
+			file.close()
+	except Exception as e:
+		file = open('j2llogs.logs', 'a')
+		file.write("\n**************\nProof Details\n**************\n"+"Error"+"\n")
+		file.close()
+	print "Successfully Proved"
+else:
+	print "Failed To Prove"
+
+Result 
+Failed To Prove
+
+
+Result --Failed to Prove
+
+***********************
+2017-05-14 13:05:50
+***********************
+
+Command--Translate 
+
+Parameters--
+ File Name--standard_palindrome_true-unreach-call_ground.i
+
+Equation Pass to sympy
+T(n+1)-(T(n) + 1)=0------Base Case--T(0)=i
+
+Closed form solution return by sympy 
+i + n
+
+Original Axoims 
+i2(_n1 + 1)=i2(_n1) + 1,i2(0)=i
+ Closed Form Solution
+_n1 + i
+
+Equation Pass to sympy
+T(n+1)-(T(n) + 1)=0------Base Case--T(0)=x
+
+Closed form solution return by sympy 
+n + x
+
+Original Axoims 
+x4(_n2 + 1)=x4(_n2) + 1,x4(0)=x
+ Closed Form Solution
+_n2 + x
+
+***********************
+2017-05-14 13:05:51
+***********************
+
+Command--Prove 
+
+Parameters--
+
+ Pre Condition--[]
+ Post Condition--['d1array2(A, 0, 1) == d1array2(A, __VERIFIER_nondet_int - 1, 0)']
+ Strategy--Automatically Deriving Addition Axoimes
+
+Query --
+
+d1array2(A, 0, 1) == d1array2(A, __VERIFIER_nondet_int - 1, 0)
+
+System try to prove 
+d1array2(A, 0, 1) == d1array2(A, __VERIFIER_nondet_int - 1, 0)
+
+Query to z3 
+from z3 import *
+set_param(proof=True)
+_p1=Int('_p1')
+_p2=Int('_p2')
+_n=Int('_n')
+arraySort = DeclareSort('arraySort')
+_f=Function('_f',IntSort(),IntSort())
+A=Const('A',arraySort)
+_n2=Int('_n2')
+main=Int('main')
+__VERIFIER_nondet_int=Int('__VERIFIER_nondet_int')
+i1=Int('i1')
+_N1=Const('_N1',IntSort())
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+A1=Const('A1',arraySort)
+_N2=Const('_N2',IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+_n1=Int('_n1')
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+n1=Int('n1')
+x1=Int('x1')
+_x1=Const('_x1',arraySort)
+_x2=Int('_x2')
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+__VERIFIER_nondet_int=Int('__VERIFIER_nondet_int')
+main=Int('main')
+__VERIFIER_assert=Function('__VERIFIER_assert',RealSort(),IntSort())
+_k1=Int('_k1')
+_L1=Int('_L1')
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+_s=Solver()
+_s.add(ForAll([_n],Implies(_n>=0, _f(_n)==_n)))
+_s.set("timeout",60000)
+_s.add(A1 == A)
+_s.add(ForAll([_n1],Implies(_n1>=0,d1array2(A, _n1, _n1 + 1) == d1array2(A, __VERIFIER_nondet_int - _n1 - 1, _n1))))
+_s.add(ForAll([_x2],Implies(_x2>=0,d1array2(A, _x2, 0) == d1array(A, _x2))))
+_s.add((_N1>=(-(0)+((__VERIFIER_nondet_int)/(2)))))
+_s.add(ForAll([_n1],Implies(And(_n1 < _N1,_n1>=0),(_f(_n1)<((__VERIFIER_nondet_int)/(2))))))
+_s.add(Or(_N1==0,_N1 - 1 < __VERIFIER_nondet_int/2))
+_s.add(A1 == A)
+_s.add(_k1>=0)
+_s.add(Not(d1array2(A, 0, 1) == d1array2(A, __VERIFIER_nondet_int - 1, 0)))
+if sat==_s.check():
+	print "Counter Example"
+	print _s.model()
+	witnessXmlStr=['<?xml version="1.0" encoding="UTF-8" standalone="no"?><graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><key attr.name="isEntryNode" attr.type="boolean" for="node" id="entry"><default>false</default></key><key attr.name="isViolationNode" attr.type="boolean" for="node" id="violation"><default>false</default></key><key attr.name="witness-type" attr.type="string" for="graph" id="witness-type"/><key attr.name="sourcecodelang" attr.type="string" for="graph" id="sourcecodelang"/><key attr.name="producer" attr.type="string" for="graph" id="producer"/><key attr.name="specification" attr.type="string" for="graph" id="specification"/><key attr.name="programFile" attr.type="string" for="graph" id="programfile"/><key attr.name="programHash" attr.type="string" for="graph" id="programhash"/><key attr.name="memoryModel" attr.type="string" for="graph" id="memorymodel"/><key attr.name="architecture" attr.type="string" for="graph" id="architecture"/><key attr.name="startline" attr.type="int" for="edge" id="startline"/><key attr.name="assumption" attr.type="string" for="edge" id="assumption"/><key attr.name="assumption.scope" attr.type="string" for="edge" id="assumption.scope"/><key attr.name="assumption.resultfunction" attr.type="string" for="edge" id="assumption.resultfunction"/><graph edgedefault="directed"><data key="witness-type">violation_witness</data><data key="sourcecodelang">C</data><data key="producer">CPAchecker 1.6.1-svn</data><data key="specification">CHECK( init(main()), LTL(G ! call(__VERIFIER_error())) )</data><data key="programfile">standard_palindrome_true-unreach-call_ground.i</data><data key="programhash">1776ed2413d170f227b69d8c79ba700d31db6f75</data><data key="memorymodel">precise</data><data key="architecture">32bit</data><node id="entry"><data key="entry">true</data></node><node id="error"><data key="violation">true</data></node><edge source="entry" target="error">', '<data key="assumption.scope">main</data><data key="assumption.resultfunction">__VERIFIER_nondet_int</data></edge></graph></graphml>', 'main', 'standard_palindrome_true-unreach-call_ground.i']
+	middle=''
+	for element in _s.model():
+		if str(element)==witnessXmlStr[2]:
+			middle+='<data key="assumption">'+'\\'+'result=='+str(_s.model()[element])+'</data>'
+	file = open(witnessXmlStr[3]+'_witness.graphml', 'w')
+	file.write(witnessXmlStr[0]+middle+witnessXmlStr[1])
+	file.close()
+elif unsat==_s.check():
+	_s.check()
+	try:
+		if os.path.isfile('j2llogs.logs'):
+			file = open('j2llogs.logs', 'a')
+			file.write("\n**************\nProof Details\n**************\n"+str(_s.proof().children())+"\n")
+			file.close()
+		else:
+			file = open('j2llogs.logs', 'w')
+			file.write("\n**************\nProof Details\n**************\n"+str(_s.proof().children())+"\n")
+			file.close()
+	except Exception as e:
+		file = open('j2llogs.logs', 'a')
+		file.write("\n**************\nProof Details\n**************\n"+"Error"+"\n")
+		file.close()
+	print "Successfully Proved"
+else:
+	print "Failed To Prove"
+
+**************
+Proof Details
+**************
+[mp(quant-inst(Or(Not(ForAll(_n1,
+                            Or(Not(_n1 >= 0),
+                               d1array2(A, _n1, 1 + _n1) ==
+                               d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*_n1,
+                                        _n1)))),
+                 Or(Not(0 >= 0),
+                    d1array2(A, 0, 1 + 0) ==
+                    d1array2(A,
+                             -1 +
+                             __VERIFIER_nondet_int +
+                             -1*0,
+                             0)))),
+   trans(monotonicity(trans(monotonicity(trans(monotonicity(rewrite((0 >=
+                                        0) ==
+                                        True),
+                                        Not(0 >= 0) ==
+                                        Not(True)),
+                                        rewrite(Not(True) ==
+                                        False),
+                                        Not(0 >= 0) == False),
+                                        monotonicity(monotonicity(rewrite(1 +
+                                        0 ==
+                                        1),
+                                        d1array2(A,
+                                        0,
+                                        1 + 0) ==
+                                        d1array2(A, 0, 1)),
+                                        monotonicity(trans(monotonicity(rewrite(-1*
+                                        0 ==
+                                        0),
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*0 ==
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        0),
+                                        rewrite(-1 +
+                                        __VERIFIER_nondet_int +
+                                        0 ==
+                                        -1 +
+                                        __VERIFIER_nondet_int),
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*0 ==
+                                        -1 +
+                                        __VERIFIER_nondet_int),
+                                        d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*0,
+                                        0) ==
+                                        d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int,
+                                        0)),
+                                        (d1array2(A,
+                                        0,
+                                        1 + 0) ==
+                                        d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*0,
+                                        0)) ==
+                                        (d1array2(A, 0, 1) ==
+                                        d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int,
+                                        0))),
+                                        Or(Not(0 >= 0),
+                                        d1array2(A,
+                                        0,
+                                        1 + 0) ==
+                                        d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*0,
+                                        0)) ==
+                                        Or(False,
+                                        d1array2(A, 0, 1) ==
+                                        d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int,
+                                        0))),
+                            rewrite(Or(False,
+                                       d1array2(A, 0, 1) ==
+                                       d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int,
+                                        0)) ==
+                                    (d1array2(A, 0, 1) ==
+                                     d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int,
+                                        0))),
+                            Or(Not(0 >= 0),
+                               d1array2(A, 0, 1 + 0) ==
+                               d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*0,
+                                        0)) ==
+                            (d1array2(A, 0, 1) ==
+                             d1array2(A,
+                                      -1 +
+                                      __VERIFIER_nondet_int,
+                                      0))),
+                      Or(Not(ForAll(_n1,
+                                    Or(Not(_n1 >= 0),
+                                       d1array2(A,
+                                        _n1,
+                                        1 + _n1) ==
+                                       d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*_n1,
+                                        _n1)))),
+                         Or(Not(0 >= 0),
+                            d1array2(A, 0, 1 + 0) ==
+                            d1array2(A,
+                                     -1 +
+                                     __VERIFIER_nondet_int +
+                                     -1*0,
+                                     0))) ==
+                      Or(Not(ForAll(_n1,
+                                    Or(Not(_n1 >= 0),
+                                       d1array2(A,
+                                        _n1,
+                                        1 + _n1) ==
+                                       d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*_n1,
+                                        _n1)))),
+                         d1array2(A, 0, 1) ==
+                         d1array2(A,
+                                  -1 + __VERIFIER_nondet_int,
+                                  0))),
+         rewrite(Or(Not(ForAll(_n1,
+                               Or(Not(_n1 >= 0),
+                                  d1array2(A, _n1, 1 + _n1) ==
+                                  d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*_n1,
+                                        _n1)))),
+                    d1array2(A, 0, 1) ==
+                    d1array2(A,
+                             -1 + __VERIFIER_nondet_int,
+                             0)) ==
+                 Or(Not(ForAll(_n1,
+                               Or(Not(_n1 >= 0),
+                                  d1array2(A, _n1, 1 + _n1) ==
+                                  d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*_n1,
+                                        _n1)))),
+                    d1array2(A, 0, 1) ==
+                    d1array2(A,
+                             -1 + __VERIFIER_nondet_int,
+                             0))),
+         Or(Not(ForAll(_n1,
+                       Or(Not(_n1 >= 0),
+                          d1array2(A, _n1, 1 + _n1) ==
+                          d1array2(A,
+                                   -1 +
+                                   __VERIFIER_nondet_int +
+                                   -1*_n1,
+                                   _n1)))),
+            Or(Not(0 >= 0),
+               d1array2(A, 0, 1 + 0) ==
+               d1array2(A,
+                        -1 + __VERIFIER_nondet_int + -1*0,
+                        0))) ==
+         Or(Not(ForAll(_n1,
+                       Or(Not(_n1 >= 0),
+                          d1array2(A, _n1, 1 + _n1) ==
+                          d1array2(A,
+                                   -1 +
+                                   __VERIFIER_nondet_int +
+                                   -1*_n1,
+                                   _n1)))),
+            d1array2(A, 0, 1) ==
+            d1array2(A, -1 + __VERIFIER_nondet_int, 0))),
+   Or(Not(ForAll(_n1,
+                 Or(Not(_n1 >= 0),
+                    d1array2(A, _n1, 1 + _n1) ==
+                    d1array2(A,
+                             -1 +
+                             __VERIFIER_nondet_int +
+                             -1*_n1,
+                             _n1)))),
+      d1array2(A, 0, 1) ==
+      d1array2(A, -1 + __VERIFIER_nondet_int, 0))), mp(mp~(mp(asserted(ForAll(_n1,
+                          Implies(_n1 >= 0,
+                                  d1array2(A, _n1, _n1 + 1) ==
+                                  d1array2(A,
+                                        __VERIFIER_nondet_int -
+                                        _n1 -
+                                        1,
+                                        _n1)))),
+          quant-intro(trans(monotonicity(monotonicity(monotonicity(rewrite(Var(0) +
+                                        1 ==
+                                        1 + Var(0)),
+                                        d1array2(A,
+                                        Var(0),
+                                        Var(0) + 1) ==
+                                        d1array2(A,
+                                        Var(0),
+                                        1 + Var(0))),
+                                        monotonicity(trans(trans(monotonicity(rewrite(__VERIFIER_nondet_int -
+                                        Var(0) ==
+                                        __VERIFIER_nondet_int +
+                                        -1*Var(0)),
+                                        __VERIFIER_nondet_int -
+                                        Var(0) -
+                                        1 ==
+                                        __VERIFIER_nondet_int +
+                                        -1*Var(0) -
+                                        1),
+                                        rewrite(__VERIFIER_nondet_int +
+                                        -1*Var(0) -
+                                        1 ==
+                                        __VERIFIER_nondet_int +
+                                        -1*Var(0) +
+                                        -1*1),
+                                        __VERIFIER_nondet_int -
+                                        Var(0) -
+                                        1 ==
+                                        __VERIFIER_nondet_int +
+                                        -1*Var(0) +
+                                        -1*1),
+                                        trans(monotonicity(rewrite(-1*
+                                        1 ==
+                                        -1),
+                                        __VERIFIER_nondet_int +
+                                        -1*Var(0) +
+                                        -1*1 ==
+                                        __VERIFIER_nondet_int +
+                                        -1*Var(0) +
+                                        -1),
+                                        rewrite(__VERIFIER_nondet_int +
+                                        -1*Var(0) +
+                                        -1 ==
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*Var(0)),
+                                        __VERIFIER_nondet_int +
+                                        -1*Var(0) +
+                                        -1*1 ==
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*Var(0)),
+                                        __VERIFIER_nondet_int -
+                                        Var(0) -
+                                        1 ==
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*Var(0)),
+                                        d1array2(A,
+                                        __VERIFIER_nondet_int -
+                                        Var(0) -
+                                        1,
+                                        Var(0)) ==
+                                        d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*Var(0),
+                                        Var(0))),
+                                        (d1array2(A,
+                                        Var(0),
+                                        Var(0) + 1) ==
+                                        d1array2(A,
+                                        __VERIFIER_nondet_int -
+                                        Var(0) -
+                                        1,
+                                        Var(0))) ==
+                                        (d1array2(A,
+                                        Var(0),
+                                        1 + Var(0)) ==
+                                        d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*Var(0),
+                                        Var(0)))),
+                                        Implies(Var(0) >= 0,
+                                        d1array2(A,
+                                        Var(0),
+                                        Var(0) + 1) ==
+                                        d1array2(A,
+                                        __VERIFIER_nondet_int -
+                                        Var(0) -
+                                        1,
+                                        Var(0))) ==
+                                        Implies(Var(0) >= 0,
+                                        d1array2(A,
+                                        Var(0),
+                                        1 + Var(0)) ==
+                                        d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*Var(0),
+                                        Var(0)))),
+                            rewrite(Implies(Var(0) >= 0,
+                                        d1array2(A,
+                                        Var(0),
+                                        1 + Var(0)) ==
+                                        d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*Var(0),
+                                        Var(0))) ==
+                                    Or(Not(Var(0) >= 0),
+                                       d1array2(A,
+                                        Var(0),
+                                        1 + Var(0)) ==
+                                       d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*Var(0),
+                                        Var(0)))),
+                            Implies(Var(0) >= 0,
+                                    d1array2(A,
+                                        Var(0),
+                                        Var(0) + 1) ==
+                                    d1array2(A,
+                                        __VERIFIER_nondet_int -
+                                        Var(0) -
+                                        1,
+                                        Var(0))) ==
+                            Or(Not(Var(0) >= 0),
+                               d1array2(A,
+                                        Var(0),
+                                        1 + Var(0)) ==
+                               d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*Var(0),
+                                        Var(0)))),
+                      (ForAll(_n1,
+                              Implies(_n1 >= 0,
+                                      d1array2(A,
+                                        _n1,
+                                        _n1 + 1) ==
+                                      d1array2(A,
+                                        __VERIFIER_nondet_int -
+                                        _n1 -
+                                        1,
+                                        _n1)))) ==
+                      (ForAll(_n1,
+                              Or(Not(_n1 >= 0),
+                                 d1array2(A, _n1, 1 + _n1) ==
+                                 d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int +
+                                        -1*_n1,
+                                        _n1))))),
+          ForAll(_n1,
+                 Or(Not(_n1 >= 0),
+                    d1array2(A, _n1, 1 + _n1) ==
+                    d1array2(A,
+                             -1 +
+                             __VERIFIER_nondet_int +
+                             -1*_n1,
+                             _n1)))),
+       nnf-pos(refl(~(Or(Not(Var(0) >= 0),
+                         d1array2(A, Var(0), 1 + Var(0)) ==
+                         d1array2(A,
+                                  -1 +
+                                  __VERIFIER_nondet_int +
+                                  -1*Var(0),
+                                  Var(0))),
+                      Or(Not(Var(0) >= 0),
+                         d1array2(A, Var(0), 1 + Var(0)) ==
+                         d1array2(A,
+                                  -1 +
+                                  __VERIFIER_nondet_int +
+                                  -1*Var(0),
+                                  Var(0))))),
+               ~(ForAll(_n1,
+                        Or(Not(_n1 >= 0),
+                           d1array2(A, _n1, 1 + _n1) ==
+                           d1array2(A,
+                                    -1 +
+                                    __VERIFIER_nondet_int +
+                                    -1*_n1,
+                                    _n1))),
+                 ForAll(_n1,
+                        Or(Not(_n1 >= 0),
+                           d1array2(A, _n1, 1 + _n1) ==
+                           d1array2(A,
+                                    -1 +
+                                    __VERIFIER_nondet_int +
+..., mp(asserted(Not(d1array2(A, 0, 1) ==
+                d1array2(A, __VERIFIER_nondet_int - 1, 0))),
+   monotonicity(monotonicity(monotonicity(trans(rewrite(__VERIFIER_nondet_int -
+                                        1 ==
+                                        __VERIFIER_nondet_int +
+                                        -1*1),
+                                        trans(monotonicity(rewrite(-1*
+                                        1 ==
+                                        -1),
+                                        __VERIFIER_nondet_int +
+                                        -1*1 ==
+                                        __VERIFIER_nondet_int +
+                                        -1),
+                                        rewrite(__VERIFIER_nondet_int +
+                                        -1 ==
+                                        -1 +
+                                        __VERIFIER_nondet_int),
+                                        __VERIFIER_nondet_int +
+                                        -1*1 ==
+                                        -1 +
+                                        __VERIFIER_nondet_int),
+                                        __VERIFIER_nondet_int -
+                                        1 ==
+                                        -1 +
+                                        __VERIFIER_nondet_int),
+                                        d1array2(A,
+                                        __VERIFIER_nondet_int -
+                                        1,
+                                        0) ==
+                                        d1array2(A,
+                                        -1 +
+                                        __VERIFIER_nondet_int,
+                                        0)),
+                             (d1array2(A, 0, 1) ==
+                              d1array2(A,
+                                       __VERIFIER_nondet_int -
+                                       1,
+                                       0)) ==
+                             (d1array2(A, 0, 1) ==
+                              d1array2(A,
+                                       -1 +
+                                       __VERIFIER_nondet_int,
+                                       0))),
+                Not(d1array2(A, 0, 1) ==
+                    d1array2(A,
+                             __VERIFIER_nondet_int - 1,
+                             0)) ==
+                Not(d1array2(A, 0, 1) ==
+                    d1array2(A,
+                             -1 + __VERIFIER_nondet_int,
+                             0))),
+   Not(d1array2(A, 0, 1) ==
+       d1array2(A, -1 + __VERIFIER_nondet_int, 0))), False]
+
+Result 
+Successfully Proved
+
+
+Result --Successfully Proved
+
+***********************
+2017-05-14 13:05:52
+***********************
+
+Command--Prove 
+
+Parameters--
+
+ Pre Condition--[]
+ Post Condition--['Implies((d1array2(A, _k1, _k1 + 1)==d1array2(A, __VERIFIER_nondet_int - _k1 - 1, _k1)),(d1array2(A, _k1 + 1, _k1 + 2)==d1array2(A, __VERIFIER_nondet_int - _k1, _k1 + 1)))']
+ Strategy--Automatically Deriving Addition Axoimes
+
+Query --
+
+Implies((d1array2(A, _k1, _k1 + 1)==d1array2(A, __VERIFIER_nondet_int - _k1 - 1, _k1)),(d1array2(A, _k1 + 1, _k1 + 2)==d1array2(A, __VERIFIER_nondet_int - _k1, _k1 + 1)))
+
+System try to prove 
+Implies((d1array2(A, _k1, _k1 + 1)==d1array2(A, __VERIFIER_nondet_int - _k1 - 1, _k1)),(d1array2(A, _k1 + 1, _k1 + 2)==d1array2(A, __VERIFIER_nondet_int - _k1, _k1 + 1)))
+
+Query to z3 
+from z3 import *
+set_param(proof=True)
+_p1=Int('_p1')
+_p2=Int('_p2')
+_n=Int('_n')
+arraySort = DeclareSort('arraySort')
+_f=Function('_f',IntSort(),IntSort())
+A=Const('A',arraySort)
+_n2=Int('_n2')
+main=Int('main')
+__VERIFIER_nondet_int=Int('__VERIFIER_nondet_int')
+i1=Int('i1')
+_N1=Const('_N1',IntSort())
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+A1=Const('A1',arraySort)
+_N2=Const('_N2',IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+_n1=Int('_n1')
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+n1=Int('n1')
+x1=Int('x1')
+_x1=Const('_x1',arraySort)
+_x2=Int('_x2')
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+__VERIFIER_nondet_int=Int('__VERIFIER_nondet_int')
+main=Int('main')
+__VERIFIER_assert=Function('__VERIFIER_assert',RealSort(),IntSort())
+_k1=Int('_k1')
+_L1=Int('_L1')
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+_s=Solver()
+_s.add(ForAll([_n],Implies(_n>=0, _f(_n)==_n)))
+_s.set("timeout",60000)
+_s.add(A1 == A)
+_s.add(ForAll([_n1],Implies(_n1>=0,d1array2(A, _n1, _n1 + 1) == d1array2(A, __VERIFIER_nondet_int - _n1 - 1, _n1))))
+_s.add(ForAll([_x2],Implies(_x2>=0,d1array2(A, _x2, 0) == d1array(A, _x2))))
+_s.add((_N1>=(-(0)+((__VERIFIER_nondet_int)/(2)))))
+_s.add(ForAll([_n1],Implies(And(_n1 < _N1,_n1>=0),(_f(_n1)<((__VERIFIER_nondet_int)/(2))))))
+_s.add(Or(_N1==0,_N1 - 1 < __VERIFIER_nondet_int/2))
+_s.add(A1 == A)
+_s.add(_k1>=0)
+_s.add(Not(Implies((d1array2(A, _k1, _k1 + 1)==d1array2(A, __VERIFIER_nondet_int - _k1 - 1, _k1)),(d1array2(A, _k1 + 1, _k1 + 2)==d1array2(A, __VERIFIER_nondet_int - _k1, _k1 + 1)))))
+if sat==_s.check():
+	print "Counter Example"
+	print _s.model()
+	witnessXmlStr=['<?xml version="1.0" encoding="UTF-8" standalone="no"?><graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><key attr.name="isEntryNode" attr.type="boolean" for="node" id="entry"><default>false</default></key><key attr.name="isViolationNode" attr.type="boolean" for="node" id="violation"><default>false</default></key><key attr.name="witness-type" attr.type="string" for="graph" id="witness-type"/><key attr.name="sourcecodelang" attr.type="string" for="graph" id="sourcecodelang"/><key attr.name="producer" attr.type="string" for="graph" id="producer"/><key attr.name="specification" attr.type="string" for="graph" id="specification"/><key attr.name="programFile" attr.type="string" for="graph" id="programfile"/><key attr.name="programHash" attr.type="string" for="graph" id="programhash"/><key attr.name="memoryModel" attr.type="string" for="graph" id="memorymodel"/><key attr.name="architecture" attr.type="string" for="graph" id="architecture"/><key attr.name="startline" attr.type="int" for="edge" id="startline"/><key attr.name="assumption" attr.type="string" for="edge" id="assumption"/><key attr.name="assumption.scope" attr.type="string" for="edge" id="assumption.scope"/><key attr.name="assumption.resultfunction" attr.type="string" for="edge" id="assumption.resultfunction"/><graph edgedefault="directed"><data key="witness-type">violation_witness</data><data key="sourcecodelang">C</data><data key="producer">CPAchecker 1.6.1-svn</data><data key="specification">CHECK( init(main()), LTL(G ! call(__VERIFIER_error())) )</data><data key="programfile">standard_palindrome_true-unreach-call_ground.i</data><data key="programhash">1776ed2413d170f227b69d8c79ba700d31db6f75</data><data key="memorymodel">precise</data><data key="architecture">32bit</data><node id="entry"><data key="entry">true</data></node><node id="error"><data key="violation">true</data></node><edge source="entry" target="error">', '<data key="assumption.scope">main</data><data key="assumption.resultfunction">__VERIFIER_nondet_int</data></edge></graph></graphml>', 'main', 'standard_palindrome_true-unreach-call_ground.i']
+	middle=''
+	for element in _s.model():
+		if str(element)==witnessXmlStr[2]:
+			middle+='<data key="assumption">'+'\\'+'result=='+str(_s.model()[element])+'</data>'
+	file = open(witnessXmlStr[3]+'_witness.graphml', 'w')
+	file.write(witnessXmlStr[0]+middle+witnessXmlStr[1])
+	file.close()
+elif unsat==_s.check():
+	_s.check()
+	try:
+		if os.path.isfile('j2llogs.logs'):
+			file = open('j2llogs.logs', 'a')
+			file.write("\n**************\nProof Details\n**************\n"+str(_s.proof().children())+"\n")
+			file.close()
+		else:
+			file = open('j2llogs.logs', 'w')
+			file.write("\n**************\nProof Details\n**************\n"+str(_s.proof().children())+"\n")
+			file.close()
+	except Exception as e:
+		file = open('j2llogs.logs', 'a')
+		file.write("\n**************\nProof Details\n**************\n"+"Error"+"\n")
+		file.close()
+	print "Successfully Proved"
+else:
+	print "Failed To Prove"
+
+Result 
+Counter Example
+[A1 = arraySort!val!0,
+ A = arraySort!val!0,
+ __VERIFIER_nondet_int = 3,
+ _N1 = 1,
+ _k1 = 5853,
+ k!7 = [else ->
+        If(Var(0) >= -5851,
+           If(Var(0) >= -5850,
+              If(Var(0) >= 0,
+                 If(Var(0) >= 5852,
+                    If(Var(0) >= 5853,
+                       If(Var(0) >= 5854,
+                          If(Var(0) >= 5855, 5855, 5854),
+                          5853),
+                       5852),
+                    0),
+                 -5850),
+              -5851),
+           -5852)],
+ _f = [else -> Var(0)],
+ d1array = [else -> d1array2(arraySort!val!0, Var(1), 0)],
+ d1array2!9 = [(arraySort!val!0, 5854, 5855) -> 10,
+               (arraySort!val!0, -5850, 5854) -> 9,
+               (arraySort!val!0, -5852, 5854) -> 10,
+               else -> 8],
+ d1array2 = [else ->
+             d1array2!9(Var(0), k!7(Var(1)), k!7(Var(2)))]]
+
+
+Result --Counter Example
+[A1 = arraySort!val!0,
+ A = arraySort!val!0,
+ __VERIFIER_nondet_int = 3,
+ _N1 = 1,
+ _k1 = 5853,
+ k!7 = [else ->
+        If(Var(0) >= -5851,
+           If(Var(0) >= -5850,
+              If(Var(0) >= 0,
+                 If(Var(0) >= 5852,
+                    If(Var(0) >= 5853,
+                       If(Var(0) >= 5854,
+                          If(Var(0) >= 5855, 5855, 5854),
+                          5853),
+                       5852),
+                    0),
+                 -5850),
+              -5851),
+           -5852)],
+ _f = [else -> Var(0)],
+ d1array = [else -> d1array2(arraySort!val!0, Var(1), 0)],
+ d1array2!9 = [(arraySort!val!0, 5854, 5855) -> 10,
+               (arraySort!val!0, -5850, 5854) -> 9,
+               (arraySort!val!0, -5852, 5854) -> 10,
+               else -> 8],
+ d1array2 = [else ->
+             d1array2!9(Var(0), k!7(Var(1)), k!7(Var(2)))]]
+
+
+***********************
+2017-05-14 13:05:52
+***********************
+
+Command--Prove 
+
+Parameters--
+
+ Pre Condition--[]
+ Post Condition--['ForAll([_x2,_n1],Implies(And(_x2>=0,_n1>=0),d1array4(A, _n1, 0) == d1array(A, _x2)))']
+ Strategy--Automatically Deriving Addition Axoimes
+
+Query --
+
+ForAll([_x2,_n1],Implies(And(_x2>=0,_n1>=0),d1array4(A, _n1, 0) == d1array(A, _x2)))
+
+System try to prove 
+ForAll([_x2,_n1],Implies(And(_x2>=0,_n1>=0),d1array4(A, _n1, 0) == d1array(A, _x2)))
+
+Query to z3 
+from z3 import *
+set_param(proof=True)
+_p1=Int('_p1')
+_p2=Int('_p2')
+_n=Int('_n')
+arraySort = DeclareSort('arraySort')
+_f=Function('_f',IntSort(),IntSort())
+A=Const('A',arraySort)
+_n2=Int('_n2')
+main=Int('main')
+__VERIFIER_nondet_int=Int('__VERIFIER_nondet_int')
+i1=Int('i1')
+_N1=Const('_N1',IntSort())
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+A1=Const('A1',arraySort)
+_N2=Const('_N2',IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+_n1=Int('_n1')
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+n1=Int('n1')
+x1=Int('x1')
+_x1=Const('_x1',arraySort)
+_x2=Int('_x2')
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+__VERIFIER_nondet_int=Int('__VERIFIER_nondet_int')
+main=Int('main')
+__VERIFIER_assert=Function('__VERIFIER_assert',RealSort(),IntSort())
+_k1=Int('_k1')
+_L1=Int('_L1')
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+_k2=Int('_k2')
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+_s=Solver()
+_s.add(ForAll([_n],Implies(_n>=0, _f(_n)==_n)))
+_s.set("timeout",60000)
+_s.add(A1 == A)
+_s.add(ForAll([_x2,_n2],Implies(And(_x2>=0,_n2>=0),d1array4(A, _x2, _n2 + 1) == d1array4(A, _x2, _n2))))
+_s.add(ForAll([_x2],Implies(_x2>=0,d1array4(A, _x2, 0) == d1array2(A, _x2, _N1))))
+_s.add((_N2>=(((__VERIFIER_nondet_int)/(2))-0)))
+_s.add(ForAll([_n2],Implies(And(_n2 < _N2,_n2>=0),(_f(_n2)<((__VERIFIER_nondet_int)/(2))))))
+_s.add(Or(_N2==0,_N2 - 1 < __VERIFIER_nondet_int/2))
+_s.add(A1 == A)
+_s.add(_k1>=0)
+_s.add(_k2>=0)
+_s.add(Not(ForAll([_x2,_n1],Implies(And(_x2>=0,_n1>=0),d1array4(A, _n1, 0) == d1array(A, _x2)))))
+if sat==_s.check():
+	print "Counter Example"
+	print _s.model()
+	witnessXmlStr=['<?xml version="1.0" encoding="UTF-8" standalone="no"?><graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><key attr.name="isEntryNode" attr.type="boolean" for="node" id="entry"><default>false</default></key><key attr.name="isViolationNode" attr.type="boolean" for="node" id="violation"><default>false</default></key><key attr.name="witness-type" attr.type="string" for="graph" id="witness-type"/><key attr.name="sourcecodelang" attr.type="string" for="graph" id="sourcecodelang"/><key attr.name="producer" attr.type="string" for="graph" id="producer"/><key attr.name="specification" attr.type="string" for="graph" id="specification"/><key attr.name="programFile" attr.type="string" for="graph" id="programfile"/><key attr.name="programHash" attr.type="string" for="graph" id="programhash"/><key attr.name="memoryModel" attr.type="string" for="graph" id="memorymodel"/><key attr.name="architecture" attr.type="string" for="graph" id="architecture"/><key attr.name="startline" attr.type="int" for="edge" id="startline"/><key attr.name="assumption" attr.type="string" for="edge" id="assumption"/><key attr.name="assumption.scope" attr.type="string" for="edge" id="assumption.scope"/><key attr.name="assumption.resultfunction" attr.type="string" for="edge" id="assumption.resultfunction"/><graph edgedefault="directed"><data key="witness-type">violation_witness</data><data key="sourcecodelang">C</data><data key="producer">CPAchecker 1.6.1-svn</data><data key="specification">CHECK( init(main()), LTL(G ! call(__VERIFIER_error())) )</data><data key="programfile">standard_palindrome_true-unreach-call_ground.i</data><data key="programhash">1776ed2413d170f227b69d8c79ba700d31db6f75</data><data key="memorymodel">precise</data><data key="architecture">32bit</data><node id="entry"><data key="entry">true</data></node><node id="error"><data key="violation">true</data></node><edge source="entry" target="error">', '<data key="assumption.scope">main</data><data key="assumption.resultfunction">__VERIFIER_nondet_int</data></edge></graph></graphml>', 'main', 'standard_palindrome_true-unreach-call_ground.i']
+	middle=''
+	for element in _s.model():
+		if str(element)==witnessXmlStr[2]:
+			middle+='<data key="assumption">'+'\\'+'result=='+str(_s.model()[element])+'</data>'
+	file = open(witnessXmlStr[3]+'_witness.graphml', 'w')
+	file.write(witnessXmlStr[0]+middle+witnessXmlStr[1])
+	file.close()
+elif unsat==_s.check():
+	_s.check()
+	try:
+		if os.path.isfile('j2llogs.logs'):
+			file = open('j2llogs.logs', 'a')
+			file.write("\n**************\nProof Details\n**************\n"+str(_s.proof().children())+"\n")
+			file.close()
+		else:
+			file = open('j2llogs.logs', 'w')
+			file.write("\n**************\nProof Details\n**************\n"+str(_s.proof().children())+"\n")
+			file.close()
+	except Exception as e:
+		file = open('j2llogs.logs', 'a')
+		file.write("\n**************\nProof Details\n**************\n"+"Error"+"\n")
+		file.close()
+	print "Successfully Proved"
+else:
+	print "Failed To Prove"
+
+Result 
+Counter Example
+[A = arraySort!val!0,
+ __VERIFIER_nondet_int = -2,
+ _x2!1 = 38,
+ _n1!0 = 7719,
+ A1 = arraySort!val!0,
+ _k2 = 0,
+ _N1 = 26,
+ _k1 = 0,
+ _N2 = -1,
+ d1array2 = [(arraySort!val!0, 7719, 26) -> 24,
+             else -> d1array4(arraySort!val!0, Var(1), 0)],
+ _f = [else -> Var(0)],
+ d1array = [else -> 25],
+ d1array4 = [else -> 24]]
+
+
+Result --Counter Example
+[A = arraySort!val!0,
+ __VERIFIER_nondet_int = -2,
+ _x2!1 = 38,
+ _n1!0 = 7719,
+ A1 = arraySort!val!0,
+ _k2 = 0,
+ _N1 = 26,
+ _k1 = 0,
+ _N2 = -1,
+ d1array2 = [(arraySort!val!0, 7719, 26) -> 24,
+             else -> d1array4(arraySort!val!0, Var(1), 0)],
+ _f = [else -> Var(0)],
+ d1array = [else -> 25],
+ d1array4 = [else -> 24]]
+
+
+***********************
+2017-05-14 13:05:53
+***********************
+
+Command--Prove 
+
+Parameters--
+
+ Pre Condition--[]
+ Post Condition--['ForAll([_n2],Implies(_n2>=0,(d1array4(A, _n2, _N2)==d1array4(A, __VERIFIER_nondet_int - _n2 - 1, _N2))))']
+ Strategy--Automatically Deriving Addition Axoimes
+
+Query --
+
+ForAll([_n2],Implies(_n2>=0,(d1array4(A, _n2, _N2)==d1array4(A, __VERIFIER_nondet_int - _n2 - 1, _N2))))
+
+System try to prove 
+ForAll([_n2],Implies(_n2>=0,(d1array4(A, _n2, _N2)==d1array4(A, __VERIFIER_nondet_int - _n2 - 1, _N2))))
+
+Query to z3 
+from z3 import *
+set_param(proof=True)
+_p1=Int('_p1')
+_p2=Int('_p2')
+_n=Int('_n')
+arraySort = DeclareSort('arraySort')
+_f=Function('_f',IntSort(),IntSort())
+A=Const('A',arraySort)
+_n2=Int('_n2')
+main=Int('main')
+__VERIFIER_nondet_int=Int('__VERIFIER_nondet_int')
+i1=Int('i1')
+_N1=Const('_N1',IntSort())
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+A1=Const('A1',arraySort)
+_N2=Const('_N2',IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+_n1=Int('_n1')
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+n1=Int('n1')
+x1=Int('x1')
+_x1=Const('_x1',arraySort)
+_x2=Int('_x2')
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+__VERIFIER_nondet_int=Int('__VERIFIER_nondet_int')
+main=Int('main')
+__VERIFIER_assert=Function('__VERIFIER_assert',RealSort(),IntSort())
+_k1=Int('_k1')
+_L1=Int('_L1')
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+_k2=Int('_k2')
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array1=Function('d1array1',arraySort,IntSort(),IntSort())
+d1array4=Function('d1array4',arraySort,IntSort(),IntSort(),IntSort())
+d1array2=Function('d1array2',arraySort,IntSort(),IntSort(),IntSort())
+d1array=Function('d1array',arraySort,IntSort(),IntSort())
+_s=Solver()
+_s.add(ForAll([_n],Implies(_n>=0, _f(_n)==_n)))
+_s.set("timeout",60000)
+_s.add(A1 == A)
+_s.add(i1 == _N1)
+_s.add(x1 == _N2)
+_s.add(n1 == __VERIFIER_nondet_int)
+_s.add(main == 0)
+_s.add(ForAll([_x2],Implies(_x2>=0,d1array1(A, _x2) == d1array4(A, _x2, _N2))))
+_s.add(ForAll([_n1],Implies(_n1>=0,d1array2(A, _n1, _n1 + 1) == d1array2(A, __VERIFIER_nondet_int - _n1 - 1, _n1))))
+_s.add(ForAll([_x2],Implies(_x2>=0,d1array2(A, _x2, 0) == d1array(A, _x2))))
+_s.add((_N1>=(-(0)+((__VERIFIER_nondet_int)/(2)))))
+_s.add(ForAll([_n1],Implies(And(_n1 < _N1,_n1>=0),(_f(_n1)<((__VERIFIER_nondet_int)/(2))))))
+_s.add(Or(_N1==0,_N1 - 1 < __VERIFIER_nondet_int/2))
+_s.add(ForAll([_x2,_n2],Implies(And(_x2>=0,_n2>=0),d1array4(A, _x2, _n2 + 1) == d1array4(A, _x2, _n2))))
+_s.add(ForAll([_x2],Implies(_x2>=0,d1array4(A, _x2, 0) == d1array2(A, _x2, _N1))))
+_s.add((_N2>=(((__VERIFIER_nondet_int)/(2))-0)))
+_s.add(ForAll([_n2],Implies(And(_n2 < _N2,_n2>=0),(_f(_n2)<((__VERIFIER_nondet_int)/(2))))))
+_s.add(Or(_N2==0,_N2 - 1 < __VERIFIER_nondet_int/2))
+_s.add(A1 == A)
+_s.add(_k1>=0)
+_s.add(_k2>=0)
+_s.add(_N1>=0)
+_s.add(_N2>=0)
+_s.add(Not(ForAll([_n2],Implies(_n2>=0,(d1array4(A, _n2, _N2)==d1array4(A, __VERIFIER_nondet_int - _n2 - 1, _N2))))))
+if sat==_s.check():
+	print "Counter Example"
+	print _s.model()
+	witnessXmlStr=['<?xml version="1.0" encoding="UTF-8" standalone="no"?><graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><key attr.name="isEntryNode" attr.type="boolean" for="node" id="entry"><default>false</default></key><key attr.name="isViolationNode" attr.type="boolean" for="node" id="violation"><default>false</default></key><key attr.name="witness-type" attr.type="string" for="graph" id="witness-type"/><key attr.name="sourcecodelang" attr.type="string" for="graph" id="sourcecodelang"/><key attr.name="producer" attr.type="string" for="graph" id="producer"/><key attr.name="specification" attr.type="string" for="graph" id="specification"/><key attr.name="programFile" attr.type="string" for="graph" id="programfile"/><key attr.name="programHash" attr.type="string" for="graph" id="programhash"/><key attr.name="memoryModel" attr.type="string" for="graph" id="memorymodel"/><key attr.name="architecture" attr.type="string" for="graph" id="architecture"/><key attr.name="startline" attr.type="int" for="edge" id="startline"/><key attr.name="assumption" attr.type="string" for="edge" id="assumption"/><key attr.name="assumption.scope" attr.type="string" for="edge" id="assumption.scope"/><key attr.name="assumption.resultfunction" attr.type="string" for="edge" id="assumption.resultfunction"/><graph edgedefault="directed"><data key="witness-type">violation_witness</data><data key="sourcecodelang">C</data><data key="producer">CPAchecker 1.6.1-svn</data><data key="specification">CHECK( init(main()), LTL(G ! call(__VERIFIER_error())) )</data><data key="programfile">standard_palindrome_true-unreach-call_ground.i</data><data key="programhash">1776ed2413d170f227b69d8c79ba700d31db6f75</data><data key="memorymodel">precise</data><data key="architecture">32bit</data><node id="entry"><data key="entry">true</data></node><node id="error"><data key="violation">true</data></node><edge source="entry" target="error">', '<data key="assumption.scope">main</data><data key="assumption.resultfunction">__VERIFIER_nondet_int</data></edge></graph></graphml>', 'main', 'standard_palindrome_true-unreach-call_ground.i']
+	middle=''
+	for element in _s.model():
+		if str(element)==witnessXmlStr[2]:
+			middle+='<data key="assumption">'+'\\'+'result=='+str(_s.model()[element])+'</data>'
+	file = open(witnessXmlStr[3]+'_witness.graphml', 'w')
+	file.write(witnessXmlStr[0]+middle+witnessXmlStr[1])
+	file.close()
+elif unsat==_s.check():
+	_s.check()
+	try:
+		if os.path.isfile('j2llogs.logs'):
+			file = open('j2llogs.logs', 'a')
+			file.write("\n**************\nProof Details\n**************\n"+str(_s.proof().children())+"\n")
+			file.close()
+		else:
+			file = open('j2llogs.logs', 'w')
+			file.write("\n**************\nProof Details\n**************\n"+str(_s.proof().children())+"\n")
+			file.close()
+	except Exception as e:
+		file = open('j2llogs.logs', 'a')
+		file.write("\n**************\nProof Details\n**************\n"+"Error"+"\n")
+		file.close()
+	print "Successfully Proved"
+else:
+	print "Failed To Prove"
+
+Result 
+Failed To Prove
+
+
+Result --Failed to Prove

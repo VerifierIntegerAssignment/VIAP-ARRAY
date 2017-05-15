@@ -1,0 +1,53 @@
+
+***********************
+2017-05-14 01:27:18
+***********************
+
+Command--Translate 
+
+Parameters--
+ File Name--matrix_false-unreach-call_true-termination.i
+
+Equation Pass to sympy
+T(n+1)-(T(n) + 1)=0------Base Case--T(0)=k
+
+Closed form solution return by sympy 
+k + n
+
+Original Axoims 
+k4(_n1 + 1)=k4(_n1) + 1,k4(0)=k
+ Closed Form Solution
+_n1 + k
+
+Equation Pass to sympy
+T(n+1)-(T(n) + 1)=0------Base Case--T(0)=j
+
+Closed form solution return by sympy 
+j + n
+
+Original Axoims 
+j7(_n2 + 1)=j7(_n2) + 1,j7(0)=j
+ Closed Form Solution
+_n2 + j
+
+Equation Pass to sympy
+T(n+1)-(T(n) + 1)=0------Base Case--T(0)=k
+
+Closed form solution return by sympy 
+k + n
+
+Original Axoims 
+k9(_n3 + 1)=k9(_n3) + 1,k9(0)=k
+ Closed Form Solution
+_n3 + k
+
+Equation Pass to sympy
+T(n+1)-(T(n) + 1)=0------Base Case--T(0)=j
+
+Closed form solution return by sympy 
+j + n
+
+Original Axoims 
+j12(_n4 + 1)=j12(_n4) + 1,j12(0)=j
+ Closed Form Solution
+_n4 + j
