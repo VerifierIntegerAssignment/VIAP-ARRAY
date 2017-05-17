@@ -1,0 +1,10 @@
+[23:40:34 vagrant@trusty64:~/smack-master/examples/simple-project/benchmark] $ smack matrix_true-unreach-call_true-termination.i  -x=svcomp --verifier=svcomp
+SMACK program verifier version 1.7.2
+
+
+Heuristics Info:
+No quantifiers detected. Setting z3 relevancy to 0.
+Normal inlining terminated and found no bugs.
+
+
+SMACK found no errors with unroll bound 1.

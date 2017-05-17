@@ -1,0 +1,187 @@
+[21:34:56 vagrant@trusty64:~/smack-master/examples/simple-project/benchmark] $ smack array_true-unreach-call3_true-termination.i  -x=svcomp --verifier=svcomp
+SMACK program verifier version 1.7.2
+Single threaded program detected
+LB: Took 1.32 s
+Verifying program while tracking: {assertsPassed, $CurrAddr, $M.0}
+SI: Exhausted recursion bound of 1
+SI: Exhausted recursion bound of 2
+SI: Exhausted recursion bound of 3
+SI: Exhausted recursion bound of 4
+SI: Exhausted recursion bound of 5
+SI: Exhausted recursion bound of 6
+SI: Exhausted recursion bound of 7
+SI: Exhausted recursion bound of 8
+SI: Exhausted recursion bound of 9
+SI: Exhausted recursion bound of 10
+SI: Exhausted recursion bound of 11
+SI: Exhausted recursion bound of 12
+SI: Exhausted recursion bound of 13
+SI: Exhausted recursion bound of 14
+SI: Exhausted recursion bound of 15
+SI: Exhausted recursion bound of 16
+SI: Exhausted recursion bound of 17
+SI: Exhausted recursion bound of 18
+SI: Exhausted recursion bound of 19
+SI: Exhausted recursion bound of 20
+SI: Exhausted recursion bound of 21
+SI: Exhausted recursion bound of 22
+SI: Exhausted recursion bound of 23
+SI: Exhausted recursion bound of 24
+SI: Exhausted recursion bound of 25
+SI: Exhausted recursion bound of 26
+SI: Exhausted recursion bound of 27
+SI: Exhausted recursion bound of 28
+SI: Exhausted recursion bound of 29
+SI: Exhausted recursion bound of 30
+SI: Exhausted recursion bound of 31
+SI: Exhausted recursion bound of 32
+SI: Exhausted recursion bound of 33
+SI: Exhausted recursion bound of 34
+SI: Exhausted recursion bound of 35
+SI: Exhausted recursion bound of 36
+SI: Exhausted recursion bound of 37
+SI: Exhausted recursion bound of 38
+SI: Exhausted recursion bound of 39
+SI: Exhausted recursion bound of 40
+SI: Exhausted recursion bound of 41
+SI: Exhausted recursion bound of 42
+SI: Exhausted recursion bound of 43
+SI: Exhausted recursion bound of 44
+SI: Exhausted recursion bound of 45
+SI: Exhausted recursion bound of 46
+SI: Exhausted recursion bound of 47
+SI: Exhausted recursion bound of 48
+SI: Exhausted recursion bound of 49
+SI: Exhausted recursion bound of 50
+SI: Exhausted recursion bound of 51
+SI: Exhausted recursion bound of 52
+SI: Exhausted recursion bound of 53
+SI: Exhausted recursion bound of 54
+SI: Exhausted recursion bound of 55
+SI: Exhausted recursion bound of 56
+SI: Exhausted recursion bound of 57
+SI: Exhausted recursion bound of 58
+SI: Exhausted recursion bound of 59
+SI: Exhausted recursion bound of 60
+SI: Exhausted recursion bound of 61
+SI: Exhausted recursion bound of 62
+SI: Exhausted recursion bound of 63
+SI: Exhausted recursion bound of 64
+SI: Exhausted recursion bound of 65
+SI: Exhausted recursion bound of 66
+SI: Exhausted recursion bound of 67
+SI: Exhausted recursion bound of 68
+SI: Exhausted recursion bound of 69
+SI: Exhausted recursion bound of 70
+SI: Exhausted recursion bound of 71
+SI: Exhausted recursion bound of 72
+SI: Exhausted recursion bound of 73
+SI: Exhausted recursion bound of 74
+SI: Exhausted recursion bound of 75
+SI: Exhausted recursion bound of 76
+SI: Exhausted recursion bound of 77
+SI: Exhausted recursion bound of 78
+SI: Exhausted recursion bound of 79
+SI: Exhausted recursion bound of 80
+SI: Exhausted recursion bound of 81
+SI: Exhausted recursion bound of 82
+SI: Exhausted recursion bound of 83
+SI: Exhausted recursion bound of 84
+SI: Exhausted recursion bound of 85
+SI: Exhausted recursion bound of 86
+SI: Exhausted recursion bound of 87
+SI: Exhausted recursion bound of 88
+SI: Exhausted recursion bound of 89
+SI: Exhausted recursion bound of 90
+SI: Exhausted recursion bound of 91
+SI: Exhausted recursion bound of 92
+SI: Exhausted recursion bound of 93
+SI: Exhausted recursion bound of 94
+SI: Exhausted recursion bound of 95
+SI: Exhausted recursion bound of 96
+SI: Exhausted recursion bound of 97
+SI: Exhausted recursion bound of 98
+SI: Exhausted recursion bound of 99
+SI: Exhausted recursion bound of 100
+SI: Exhausted recursion bound of 101
+SI: Exhausted recursion bound of 102
+SI: Exhausted recursion bound of 103
+SI: Exhausted recursion bound of 104
+SI: Exhausted recursion bound of 105
+SI: Exhausted recursion bound of 106
+SI: Exhausted recursion bound of 107
+SI: Exhausted recursion bound of 108
+SI: Exhausted recursion bound of 109
+SI: Exhausted recursion bound of 110
+SI: Exhausted recursion bound of 111
+SI: Exhausted recursion bound of 112
+SI: Exhausted recursion bound of 113
+SI: Exhausted recursion bound of 114
+SI: Exhausted recursion bound of 115
+SI: Exhausted recursion bound of 116
+SI: Exhausted recursion bound of 117
+SI: Exhausted recursion bound of 118
+SI: Exhausted recursion bound of 119
+SI: Exhausted recursion bound of 120
+SI: Exhausted recursion bound of 121
+SI: Exhausted recursion bound of 122
+SI: Exhausted recursion bound of 123
+SI: Exhausted recursion bound of 124
+SI: Exhausted recursion bound of 125
+SI: Exhausted recursion bound of 126
+SI: Exhausted recursion bound of 127
+SI: Exhausted recursion bound of 128
+SI: Exhausted recursion bound of 129
+SI: Exhausted recursion bound of 130
+
+Unhandled Exception:
+System.IO.IOException: Write fault on path /home/vagrant/smack-master/examples/simple-project/benchmark/[Unknown]
+  at System.IO.FileStream.WriteInternal (System.Byte[] src, System.Int32 offset, System.Int32 count) [0x00086] in <dbb16e0bacdc4a0f87478e401bc29b6c>:0 
+  at System.IO.FileStream.Write (System.Byte[] array, System.Int32 offset, System.Int32 count) [0x000a5] in <dbb16e0bacdc4a0f87478e401bc29b6c>:0 
+  at System.IO.StreamWriter.Flush (System.Boolean flushStream, System.Boolean flushEncoder) [0x00094] in <dbb16e0bacdc4a0f87478e401bc29b6c>:0 
+  at System.IO.StreamWriter.Write (System.Char[] buffer, System.Int32 index, System.Int32 count) [0x000ee] in <dbb16e0bacdc4a0f87478e401bc29b6c>:0 
+  at System.IO.TextWriter.WriteLine (System.String value) [0x00083] in <dbb16e0bacdc4a0f87478e401bc29b6c>:0 
+  at Microsoft.Boogie.SMTLib.SMTLibProcess.Send (System.String cmd) [0x0006a] in <8b618674865b46b18f0add2899945f5e>:0 
+  at Microsoft.Boogie.SMTLib.SMTLibProcessTheoremProver.Send (System.String s, System.Boolean isCommon) [0x00031] in <8b618674865b46b18f0add2899945f5e>:0 
+  at Microsoft.Boogie.SMTLib.SMTLibProcessTheoremProver.SendThisVC (System.String s) [0x00000] in <8b618674865b46b18f0add2899945f5e>:0 
+  at Microsoft.Boogie.SMTLib.SMTLibProcessTheoremProver.Pop () [0x00000] in <8b618674865b46b18f0add2899945f5e>:0 
+  at CoreLib.StratifiedInlining.Pop () [0x00013] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at CoreLib.StratifiedInlining.Fwd (System.Collections.Generic.HashSet`1[T] openCallSites, CoreLib.StratifiedInliningErrorReporter reporter, System.Boolean main, System.Int32 recBound) [0x0023e] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at CoreLib.StratifiedInlining.VerifyImplementation (Microsoft.Boogie.Implementation impl, Microsoft.Boogie.VerifierCallback callback) [0x00597] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at VC.ConditionGeneration.VerifyImplementation (Microsoft.Boogie.Implementation impl, System.Collections.Generic.List`1[Microsoft.Boogie.Counterexample]& errors, System.String requestId) [0x00017] in <b8f4c391e9694c06884e3532c1c3336f>:0 
+  at cba.Util.BoogieVerify.Verify (Microsoft.Boogie.Program program, System.Boolean needErrorTraces, System.Collections.Generic.List`1[cba.Util.BoogieErrorTrace]& allErrors, System.Collections.Generic.List`1[System.String]& timedOut, System.Boolean isCBA) [0x00372] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at cba.Util.BoogieVerify.Verify (Microsoft.Boogie.Program program, System.Collections.Generic.List`1[cba.Util.BoogieErrorTrace]& allErrors, System.Boolean isCBA) [0x00006] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at cba.VerificationPass.feedToBoogie (cba.CBAProgram p) [0x00058] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at cba.VerificationPass.runCBAPass (cba.CBAProgram prog) [0x0001c] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at cba.CompilerPass.runPass (Microsoft.Boogie.Program inp) [0x00007] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at ProgTransformation.TransformationPass.run (ProgTransformation.PersistentProgram inp) [0x0008f] in <d0d0531337864fc99e00d70ac06b609d>:0 
+  at cba.CompilerPass.run (cba.PersistentCBAProgram inp) [0x00006] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at cba.CBADriver.VerifyProgram (cba.PersistentCBAProgram& prog, cba.VarSet trackedVars, System.Boolean returnTrace, cba.PersistentCBAProgram& pout, cba.InsertionTrans& tinfo, cba.ErrorTrace& cex) [0x00109] in <6edd479f33b847bab00001b84b260254>:0 
+  at cba.CBADriver.checkProgram (cba.PersistentCBAProgram& prog, cba.VarSet trackedVars, System.Boolean returnTrace, cba.PersistentCBAProgram& pout, cba.InsertionTrans& tinfo, cba.ErrorTrace& cex) [0x00005] in <6edd479f33b847bab00001b84b260254>:0 
+[ERROR] FATAL UNHANDLED EXCEPTION: System.IO.IOException: Write fault on path /home/vagrant/smack-master/examples/simple-project/benchmark/[Unknown]
+  at System.IO.FileStream.WriteInternal (System.Byte[] src, System.Int32 offset, System.Int32 count) [0x00086] in <dbb16e0bacdc4a0f87478e401bc29b6c>:0 
+  at System.IO.FileStream.Write (System.Byte[] array, System.Int32 offset, System.Int32 count) [0x000a5] in <dbb16e0bacdc4a0f87478e401bc29b6c>:0 
+  at System.IO.StreamWriter.Flush (System.Boolean flushStream, System.Boolean flushEncoder) [0x00094] in <dbb16e0bacdc4a0f87478e401bc29b6c>:0 
+  at System.IO.StreamWriter.Write (System.Char[] buffer, System.Int32 index, System.Int32 count) [0x000ee] in <dbb16e0bacdc4a0f87478e401bc29b6c>:0 
+  at System.IO.TextWriter.WriteLine (System.String value) [0x00083] in <dbb16e0bacdc4a0f87478e401bc29b6c>:0 
+  at Microsoft.Boogie.SMTLib.SMTLibProcess.Send (System.String cmd) [0x0006a] in <8b618674865b46b18f0add2899945f5e>:0 
+  at Microsoft.Boogie.SMTLib.SMTLibProcessTheoremProver.Send (System.String s, System.Boolean isCommon) [0x00031] in <8b618674865b46b18f0add2899945f5e>:0 
+  at Microsoft.Boogie.SMTLib.SMTLibProcessTheoremProver.SendThisVC (System.String s) [0x00000] in <8b618674865b46b18f0add2899945f5e>:0 
+  at Microsoft.Boogie.SMTLib.SMTLibProcessTheoremProver.Pop () [0x00000] in <8b618674865b46b18f0add2899945f5e>:0 
+  at CoreLib.StratifiedInlining.Pop () [0x00013] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at CoreLib.StratifiedInlining.Fwd (System.Collections.Generic.HashSet`1[T] openCallSites, CoreLib.StratifiedInliningErrorReporter reporter, System.Boolean main, System.Int32 recBound) [0x0023e] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at CoreLib.StratifiedInlining.VerifyImplementation (Microsoft.Boogie.Implementation impl, Microsoft.Boogie.VerifierCallback callback) [0x00597] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at VC.ConditionGeneration.VerifyImplementation (Microsoft.Boogie.Implementation impl, System.Collections.Generic.List`1[Microsoft.Boogie.Counterexample]& errors, System.String requestId) [0x00017] in <b8f4c391e9694c06884e3532c1c3336f>:0 
+  at cba.Util.BoogieVerify.Verify (Microsoft.Boogie.Program program, System.Boolean needErrorTraces, System.Collections.Generic.List`1[cba.Util.BoogieErrorTrace]& allErrors, System.Collections.Generic.List`1[System.String]& timedOut, System.Boolean isCBA) [0x00372] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at cba.Util.BoogieVerify.Verify (Microsoft.Boogie.Program program, System.Collections.Generic.List`1[cba.Util.BoogieErrorTrace]& allErrors, System.Boolean isCBA) [0x00006] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at cba.VerificationPass.feedToBoogie (cba.CBAProgram p) [0x00058] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at cba.VerificationPass.runCBAPass (cba.CBAProgram prog) [0x0001c] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at cba.CompilerPass.runPass (Microsoft.Boogie.Program inp) [0x00007] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at ProgTransformation.TransformationPass.run (ProgTransformation.PersistentProgram inp) [0x0008f] in <d0d0531337864fc99e00d70ac06b609d>:0 
+  at cba.CompilerPass.run (cba.PersistentCBAProgram inp) [0x00006] in <a67b7ed3cace4890ac24812be5359780>:0 
+  at cba.CBADriver.VerifyProgram (cba.PersistentCBAProgram& prog, cba.VarSet trackedVars, System.Boolean returnTrace, cba.PersistentCBAProgram& pout, cba.InsertionTrans& tinfo, cba.ErrorTrace& cex) [0x00109] in <6edd479f33b847bab00001b84b260254>:0 
+  at cba.CBADriver.checkProgram (cba.PersistentCBAProgram& prog, cba.VarSet trackedVars, System.Boolean returnTrace, cba.PersistentCBAProgram& pout, cba.InsertionTrans& tinfo, cba.ErrorTrace& cex) [0x00005] in <6edd479f33b847bab00001b84b260254>:0 
+
+Error invoking command:
+corral /home/vagrant/smack-master/examples/simple-project/benchmark/a-OFjWXw.bpl /tryCTrace /noTraceOnDisk /printDataValues:1 /useProverEvaluate /cex:1 /k:1 /di /bopt:z3opt:smt.relevancy=0 /timeLimit:880 /v:1 /maxStaticLoopBound:65536 /recursionBound:65536 /irreducibleLoopUnroll:2 /trackAllVars
+corral returned non-zero.

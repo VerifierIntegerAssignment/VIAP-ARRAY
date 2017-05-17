@@ -1,0 +1,11 @@
+[20:42:50 vagrant@trusty64:~/smack-master/examples/simple-project/benchmark] $ smack array_false-unreach-call2_true-termination.i  -x=svcomp --verifier=svcomp
+SMACK program verifier version 1.7.2
+Single threaded program detected
+LB: Took 0.00 s
+Verifying program while tracking: {assertsPassed, $CurrAddr, $M.0, $M.1}
+
+Stopping: Out of memory
+
+Error invoking command:
+corral /home/vagrant/smack-master/examples/simple-project/benchmark/a-NtTtyo.bpl /tryCTrace /noTraceOnDisk /printDataValues:1 /useProverEvaluate /cex:1 /k:1 /di /bopt:z3opt:smt.relevancy=0 /timeLimit:880 /v:1 /maxStaticLoopBound:65536 /recursionBound:65536 /irreducibleLoopUnroll:2 /trackAllVars
+corral returned non-zero.

@@ -1,0 +1,75 @@
+[20:39:00 vagrant@trusty64:~/smack-master/examples/simple-project/benchmark] $ smack array_false-unreach-call_true-termination.i  -x=svcomp --verifier=svcomp
+SMACK program verifier version 1.7.2
+/usr/local/share/smack/lib/smack.c(47,1): This assertion can fail
+Execution trace:
+    /usr/local/share/smack/lib/smack.c(2223,3): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(2228,1): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(15,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(15,3): Trace: Thread=1  (CALL $alloc)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(15,3): Trace: Thread=1  (RETURN from $alloc )
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(15,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(17,11): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(17,11): Trace: Thread=1  (CALL __VERIFIER_nondet_int)
+    /usr/local/share/smack/lib/smack.c(120,11): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(120,11): Trace: Thread=1  (x = 2147483647)
+    /usr/local/share/smack/lib/smack.c(121,23): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,34): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,39): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,34): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,3): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,3): Trace: Thread=1  (CALL __VERIFIER_assume)
+    /usr/local/share/smack/lib/smack.c(713,3): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(34,21): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(35,1): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,3): Trace: Thread=1  (RETURN from __VERIFIER_assume )
+    /usr/local/share/smack/lib/smack.c(122,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(17,11): Trace: Thread=1  (RETURN from __VERIFIER_nondet_int )
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(17,11): Trace: Thread=1  (menor = 2147483647)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(19,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(20,19): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(20,19): Trace: Thread=1  (CALL __VERIFIER_nondet_int)
+    /usr/local/share/smack/lib/smack.c(120,11): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(120,11): Trace: Thread=1  (x = 652)
+    /usr/local/share/smack/lib/smack.c(121,23): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,34): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,39): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,34): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,3): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,3): Trace: Thread=1  (CALL __VERIFIER_assume)
+    /usr/local/share/smack/lib/smack.c(713,3): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(34,21): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(35,1): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,3): Trace: Thread=1  (RETURN from __VERIFIER_assume )
+    /usr/local/share/smack/lib/smack.c(122,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(20,19): Trace: Thread=1  (RETURN from __VERIFIER_nondet_int )
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(20,17): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(22,11): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(22,19): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(22,11): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(23,19): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(23,19): Trace: Thread=1  (menor = 652)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(23,11): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(24,5): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(26,23): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(26,31): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(26,5): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(26,5): Trace: Thread=1  (CALL __VERIFIER_assert)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(4,8): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(4,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(4,16): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(5,12): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(5,12): Trace: Thread=1  (CALL __VERIFIER_error)
+    /usr/local/share/smack/lib/smack.c(47,3): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(47,3): Trace: Thread=1  (ASSERTION FAILS assert false;
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(5,12): Trace: Thread=1  (RETURN from __VERIFIER_error )
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(26,5): Trace: Thread=1  (RETURN from __VERIFIER_assert )
+    /home/vagrant/smack-master/examples/simple-project/benchmark/array_false-unreach-call_true-termination-zTKczE.i(26,5): Trace: Thread=1  (Done)
+
+
+
+Heuristics Info:
+No quantifiers detected. Setting z3 relevancy to 0.
+Found a bug during normal inlining.
+
+
+SMACK found an error.

@@ -1,0 +1,201 @@
+[23:15:37 vagrant@trusty64:~/smack-master/examples/simple-project/benchmark] $ smack eureka_01_false-unreach-call.c  -x=svcomp --verifier=svcomp
+SMACK program verifier version 1.7.2
+warning: memory intrinsic length exceeds threshold (0); adding quantifiers.
+warning: memory intrinsic length exceeds threshold (0); adding quantifiers.
+warning: memory intrinsic length exceeds threshold (0); adding quantifiers.
+/usr/local/share/smack/lib/smack.c(47,1): This assertion can fail
+Execution trace:
+    /usr/local/share/smack/lib/smack.c(2223,3): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(2228,1): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(13,19): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(13,19): Trace: Thread=1  (CALL __VERIFIER_nondet_int)
+    /usr/local/share/smack/lib/smack.c(120,11): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(120,11): Trace: Thread=1  (x = 2)
+    /usr/local/share/smack/lib/smack.c(121,23): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,34): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,39): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,34): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,3): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,3): Trace: Thread=1  (CALL __VERIFIER_assume)
+    /usr/local/share/smack/lib/smack.c(713,3): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(34,21): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(35,1): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,3): Trace: Thread=1  (RETURN from __VERIFIER_assume )
+    /usr/local/share/smack/lib/smack.c(122,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(13,19): Trace: Thread=1  (RETURN from __VERIFIER_nondet_int )
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(13,19): Trace: Thread=1  (nodecount = 2)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(14,19): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(14,19): Trace: Thread=1  (CALL __VERIFIER_nondet_int)
+    /usr/local/share/smack/lib/smack.c(120,11): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(120,11): Trace: Thread=1  (x = 1)
+    /usr/local/share/smack/lib/smack.c(121,23): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,34): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,39): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,34): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,3): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,3): Trace: Thread=1  (CALL __VERIFIER_assume)
+    /usr/local/share/smack/lib/smack.c(713,3): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(34,21): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(35,1): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(121,3): Trace: Thread=1  (RETURN from __VERIFIER_assume )
+    /usr/local/share/smack/lib/smack.c(122,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(14,19): Trace: Thread=1  (RETURN from __VERIFIER_nondet_int )
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(14,19): Trace: Thread=1  (edgecount = 1)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(15,23): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(15,36): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(15,49): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(15,36): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(15,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(15,3): Trace: Thread=1  (CALL __VERIFIER_assume)
+    /usr/local/share/smack/lib/smack.c(713,3): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(34,21): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(35,1): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(15,3): Trace: Thread=1  (RETURN from __VERIFIER_assume )
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(16,23): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(16,36): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(16,49): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(16,36): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(16,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(16,3): Trace: Thread=1  (CALL __VERIFIER_assume)
+    /usr/local/share/smack/lib/smack.c(713,3): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(34,21): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(35,1): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(16,3): Trace: Thread=1  (RETURN from __VERIFIER_assume )
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(16,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(18,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(18,7): Trace: Thread=1  (CALL $memcpy.i8)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(18,7): Trace: Thread=1  (RETURN from $memcpy.i8 )
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(18,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(19,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(19,7): Trace: Thread=1  (CALL $memcpy.i8)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(19,7): Trace: Thread=1  (RETURN from $memcpy.i8 )
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(19,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(20,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(20,7): Trace: Thread=1  (CALL $memcpy.i8)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(20,7): Trace: Thread=1  (RETURN from $memcpy.i8 )
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(20,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(25,16): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(25,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(26,10): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(26,8): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(27,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(27,19): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(28,5): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(32,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(25,30): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(25,30): Trace: Thread=1  (i = 1)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(25,16): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(25,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(26,10): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(26,8): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(30,21): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(30,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(30,19): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(32,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(25,30): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(25,30): Trace: Thread=1  (i = 2)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(25,16): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(25,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(34,16): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(34,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(36,20): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(36,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(38,8): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(38,8): Trace: Thread=1  (x = 1)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(39,8): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(39,8): Trace: Thread=1  (y = 0)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(40,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(40,21): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(40,35): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(40,33): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(40,19): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(40,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(42,8): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(42,20): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(43,6): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(44,2): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(36,34): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(36,34): Trace: Thread=1  (j = 1)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(36,20): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(36,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(45,5): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(34,30): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(34,30): Trace: Thread=1  (i = 1)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(34,16): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(34,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(36,20): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(36,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(38,8): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(38,8): Trace: Thread=1  (x = 1)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(39,8): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(39,8): Trace: Thread=1  (y = 0)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(40,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(40,21): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(40,35): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(40,33): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(40,19): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(40,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(44,2): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(36,34): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(36,34): Trace: Thread=1  (j = 1)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(36,20): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(36,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(45,5): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(34,30): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(34,30): Trace: Thread=1  (i = 2)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(34,16): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(34,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(46,16): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(46,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(48,11): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(48,11): Trace: Thread=1  (x = 1)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(49,11): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(49,11): Trace: Thread=1  (y = 0)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(50,10): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(50,24): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(50,38): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(50,36): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(50,22): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(50,10): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(54,5): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(46,30): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(46,30): Trace: Thread=1  (i = 1)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(46,16): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(46,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(56,16): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(56,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(58,25): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(58,36): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(58,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(58,7): Trace: Thread=1  (CALL __VERIFIER_assert)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(6,8): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(6,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(9,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(58,7): Trace: Thread=1  (RETURN from __VERIFIER_assert )
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(59,5): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(56,30): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(56,30): Trace: Thread=1  (i = 1)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(56,16): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(56,3): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(58,25): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(58,36): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(58,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(58,7): Trace: Thread=1  (CALL __VERIFIER_assert)
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(6,8): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(6,7): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(6,16): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(7,12): Trace: Thread=1  
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(7,12): Trace: Thread=1  (CALL __VERIFIER_error)
+    /usr/local/share/smack/lib/smack.c(47,3): Trace: Thread=1  
+    /usr/local/share/smack/lib/smack.c(47,3): Trace: Thread=1  (ASSERTION FAILS assert false;
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(7,12): Trace: Thread=1  (RETURN from __VERIFIER_error )
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(58,7): Trace: Thread=1  (RETURN from __VERIFIER_assert )
+    /home/vagrant/smack-master/examples/simple-project/benchmark/eureka_01_false-unreach-call-V28R4Z.c(58,7): Trace: Thread=1  (Done)
+
+
+
+Heuristics Info:
+Found a bug during normal inlining.
+
+
+SMACK found an error.
