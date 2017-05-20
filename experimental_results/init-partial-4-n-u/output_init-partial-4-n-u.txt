@@ -1,0 +1,394 @@
+>>> file_name='multi/init-partial-4-n-u/init-partial-4-n-u.c'
+>>> prove_auto(file_name)
+Program Body
+{
+  int RET = 0;
+  int _1_ASSUME = 0;
+  int _2_ASSUME = 0;
+  int _3_ASSUME = 0;
+  int _4_ASSUME = 0;
+  int _1_PROVE[][][][];
+  int i;
+  int j;
+  int k;
+  int l;
+  int m;
+  int n;
+  int p;
+  int v;
+  int q;
+  int s;
+  int t;
+  int u;
+  int A[][][][];
+  int C;
+  i = 0;
+  j = 0;
+  k = 0;
+  l = 0;
+  _1_ASSUME = q < m;
+  _2_ASSUME = s < n;
+  _3_ASSUME = t < p;
+  _4_ASSUME = u < v;
+  while (i < q)
+  {
+    j = 0;
+    k = 0;
+    l = 0;
+    while (j < s)
+    {
+      k = 0;
+      l = 0;
+      while (k < t)
+      {
+        l = 0;
+        while (l < u)
+        {
+          A[i][j][k][l] = C;
+          l = l + 1;
+        }
+
+        k = k + 1;
+      }
+
+      j = j + 1;
+    }
+
+    i = i + 1;
+  }
+
+  i = 0;
+  j = 0;
+  k = 0;
+  l = 0;
+  while (i < q)
+  {
+    j = 0;
+    k = 0;
+    l = 0;
+    while (j < s)
+    {
+      k = 0;
+      l = 0;
+      while (k < t)
+      {
+        l = 0;
+        while (l < u)
+        {
+          _1_PROVE[i][k][j][l] = A[i][j][k][l] == C;
+          l = l + 1;
+        }
+
+        k = k + 1;
+      }
+
+      j = j + 1;
+    }
+
+    i = i + 1;
+  }
+
+}
+
+Function Name:
+main
+Return Type:
+int
+Input Variables:
+{}
+Local Variables:
+{ A:array C:int _4_ASSUME:int p:int i:int s:int k:int _1_PROVE:array m:int l:int RET:int j:int q:int _2_ASSUME:int _3_ASSUME:int u:int t:int v:int _1_ASSUME:int n:int}
+Program Body
+{
+  int RET = 0;
+  int _1_FAILED = 0;
+  if (cond <= 0)
+  {
+    ERROR:
+    
+
+    _1_FAILED = 1;
+  }
+
+}
+
+Function Name:
+__VERIFIER_assert
+Return Type:
+void
+Input Variables:
+{ cond:int}
+Local Variables:
+{ _1_FAILED:int RET:int}
+Output for main:
+Output in prefix notation:
+1. Frame axioms:
+(= A1 A)
+(= C1 C)
+(= m1 m)
+(= n1 n)
+(= q1 q)
+(= p1 p)
+(= s1 s)
+(= u1 u)
+(= t1 t)
+(= v1 v)
+
+2. Output equations:
+(= i1 (+ _N8 0))
+(= k1 (k28 _N8))
+(= j1 (j28 _N8))
+(= l1 (l28 _N8))
+(= main 0)
+(= (d4array1 _x1 _x2 _x3 _x4 _x5) (d4array28 _x1 _x2 _x3 _x4 _x5 _N8))
+
+3. Other axioms:
+(= (d4array2 _x1 _x2 _x3 _x4 _x5 (+ _n1 1) _n2 _n3 _n4) (ite (and (= _x1 A) (= _x2 (+ _n4 0)) (= _x3 (+ _n3 0)) (= _x4 (+ _n2 0)) (= _x5 (+ _n1 0))) C (d4array2 _x1 _x2 _x3 _x4 _x5 _n1 _n2 _n3 _n4)))
+(= (d4array2 _x1 _x2 _x3 _x4 _x5 0 _n2 _n3 _n4) (d4array5 _x1 _x2 _x3 _x4 _x5 _n2 _n3 _n4))
+(>= (_N1 _n2 _n3 _n4) (+ (- 0) u))
+(implies (< _n1 (_N1 _n2 _n3 _n4)) (< (+ _n1 0) u))
+(= (d4array5 _x1 _x2 _x3 _x4 _x5 (+ _n2 1) _n3 _n4) (d4array2 _x1 _x2 _x3 _x4 _x5 (_N1 _n2 _n3 _n4) _n2 _n3 _n4))
+(= (l5 (+ _n2 1) _n3 _n4) (+ (_N1 _n2 _n3 _n4) 0))
+(= (d4array5 _x1 _x2 _x3 _x4 _x5 0 _n3 _n4) (d4array9 _x1 _x2 _x3 _x4 _x5 _n3 _n4))
+(= (l5 0 _n3 _n4) 0)
+(>= (_N2 _n3 _n4) (+ (- 0) t))
+(implies (< _n2 (_N2 _n3 _n4)) (< (+ _n2 0) t))
+(= (d4array9 _x1 _x2 _x3 _x4 _x5 (+ _n3 1) _n4) (d4array5 _x1 _x2 _x3 _x4 _x5 (_N2 _n3 _n4) _n3 _n4))
+(= (k9 (+ _n3 1) _n4) (+ (_N2 _n3 _n4) 0))
+(= (l9 (+ _n3 1) _n4) (l5 (_N2 _n3 _n4) _n3 _n4))
+(= (d4array9 _x1 _x2 _x3 _x4 _x5 0 _n4) (d4array14 _x1 _x2 _x3 _x4 _x5 _n4))
+(= (k9 0 _n4) 0)
+(= (l9 0 _n4) 0)
+(>= (_N3 _n4) (+ (- 0) s))
+(implies (< _n3 (_N3 _n4)) (< (+ _n3 0) s))
+(= (d4array14 _x1 _x2 _x3 _x4 _x5 (+ _n4 1)) (d4array9 _x1 _x2 _x3 _x4 _x5 (_N3 _n4) _n4))
+(= (k14 (+ _n4 1)) (k9 (_N3 _n4) _n4))
+(= (j14 (+ _n4 1)) (+ (_N3 _n4) 0))
+(= (l14 (+ _n4 1)) (l9 (_N3 _n4) _n4))
+(= (d4array14 _x1 _x2 _x3 _x4 _x5 0) (d4array _x1 _x2 _x3 _x4 _x5))
+(= (k14 0) 0)
+(= (j14 0) 0)
+(= (l14 0) 0)
+(>= _N4 (+ (- 0) q))
+(implies (< _n4 _N4) (< (+ _n4 0) q))
+(= (d4array16 _x1 _x2 _x3 _x4 _x5 (+ _n5 1) _n6 _n7 _n8) (d4array16 _x1 _x2 _x3 _x4 _x5 _n5 _n6 _n7 _n8))
+(= (d4array16 _x1 _x2 _x3 _x4 _x5 0 _n6 _n7 _n8) (d4array19 _x1 _x2 _x3 _x4 _x5 _n6 _n7 _n8))
+(>= (_N5 _n6 _n7 _n8) (+ (- 0) u))
+(implies (< _n5 (_N5 _n6 _n7 _n8)) (< (+ _n5 0) u))
+(= (d4array19 _x1 _x2 _x3 _x4 _x5 (+ _n6 1) _n7 _n8) (d4array16 _x1 _x2 _x3 _x4 _x5 (_N5 _n6 _n7 _n8) _n6 _n7 _n8))
+(= (l19 (+ _n6 1) _n7 _n8) (+ (_N5 _n6 _n7 _n8) 0))
+(= (d4array19 _x1 _x2 _x3 _x4 _x5 0 _n7 _n8) (d4array23 _x1 _x2 _x3 _x4 _x5 _n7 _n8))
+(= (l19 0 _n7 _n8) 0)
+(>= (_N6 _n7 _n8) (+ (- 0) t))
+(implies (< _n6 (_N6 _n7 _n8)) (< (+ _n6 0) t))
+(= (d4array23 _x1 _x2 _x3 _x4 _x5 (+ _n7 1) _n8) (d4array19 _x1 _x2 _x3 _x4 _x5 (_N6 _n7 _n8) _n7 _n8))
+(= (k23 (+ _n7 1) _n8) (+ (_N6 _n7 _n8) 0))
+(= (l23 (+ _n7 1) _n8) (l19 (_N6 _n7 _n8) _n7 _n8))
+(= (d4array23 _x1 _x2 _x3 _x4 _x5 0 _n8) (d4array28 _x1 _x2 _x3 _x4 _x5 _n8))
+(= (k23 0 _n8) 0)
+(= (l23 0 _n8) 0)
+(>= (_N7 _n8) (+ (- 0) s))
+(implies (< _n7 (_N7 _n8)) (< (+ _n7 0) s))
+(= (d4array28 _x1 _x2 _x3 _x4 _x5 (+ _n8 1)) (d4array23 _x1 _x2 _x3 _x4 _x5 (_N7 _n8) _n8))
+(= (k28 (+ _n8 1)) (k23 (_N7 _n8) _n8))
+(= (j28 (+ _n8 1)) (+ (_N7 _n8) 0))
+(= (l28 (+ _n8 1)) (l23 (_N7 _n8) _n8))
+(= (d4array28 _x1 _x2 _x3 _x4 _x5 0) (d4array14 _x1 _x2 _x3 _x4 _x5 _N4))
+(= (k28 0) 0)
+(= (j28 0) 0)
+(= (l28 0) 0)
+(>= _N8 (+ (- 0) q))
+(implies (< _n8 _N8) (< (+ _n8 0) q))
+
+Output in normal notation:
+1. Frame axioms:
+A1 = A
+C1 = C
+m1 = m
+n1 = n
+q1 = q
+p1 = p
+s1 = s
+u1 = u
+t1 = t
+v1 = v
+
+2. Output equations:
+i1 = (_N8+0)
+k1 = k28(_N8)
+j1 = j28(_N8)
+l1 = l28(_N8)
+main = 0
+d4array1(_x1,_x2,_x3,_x4,_x5) = d4array28(_x1,_x2,_x3,_x4,_x5,_N8)
+
+3. Other axioms:
+d4array2(_x1,_x2,_x3,_x4,_x5,(_n1+1),_n2,_n3,_n4) = ite(((_x1=A) and (_x2=(_n4+0)) and (_x3=(_n3+0)) and (_x4=(_n2+0)) and (_x5=(_n1+0))),C,d4array2(_x1,_x2,_x3,_x4,_x5,_n1,_n2,_n3,_n4))
+d4array2(_x1,_x2,_x3,_x4,_x5,0,_n2,_n3,_n4) = d4array5(_x1,_x2,_x3,_x4,_x5,_n2,_n3,_n4)
+(_N1(_n2,_n3,_n4)>=(-(0)+u))
+(_n1<_N1(_n2,_n3,_n4)) -> ((_n1+0)<u)
+d4array5(_x1,_x2,_x3,_x4,_x5,(_n2+1),_n3,_n4) = d4array2(_x1,_x2,_x3,_x4,_x5,_N1(_n2,_n3,_n4),_n2,_n3,_n4)
+l5((_n2+1),_n3,_n4) = (_N1(_n2,_n3,_n4)+0)
+d4array5(_x1,_x2,_x3,_x4,_x5,0,_n3,_n4) = d4array9(_x1,_x2,_x3,_x4,_x5,_n3,_n4)
+l5(0,_n3,_n4) = 0
+(_N2(_n3,_n4)>=(-(0)+t))
+(_n2<_N2(_n3,_n4)) -> ((_n2+0)<t)
+d4array9(_x1,_x2,_x3,_x4,_x5,(_n3+1),_n4) = d4array5(_x1,_x2,_x3,_x4,_x5,_N2(_n3,_n4),_n3,_n4)
+k9((_n3+1),_n4) = (_N2(_n3,_n4)+0)
+l9((_n3+1),_n4) = l5(_N2(_n3,_n4),_n3,_n4)
+d4array9(_x1,_x2,_x3,_x4,_x5,0,_n4) = d4array14(_x1,_x2,_x3,_x4,_x5,_n4)
+k9(0,_n4) = 0
+l9(0,_n4) = 0
+(_N3(_n4)>=(-(0)+s))
+(_n3<_N3(_n4)) -> ((_n3+0)<s)
+d4array14(_x1,_x2,_x3,_x4,_x5,(_n4+1)) = d4array9(_x1,_x2,_x3,_x4,_x5,_N3(_n4),_n4)
+k14((_n4+1)) = k9(_N3(_n4),_n4)
+j14((_n4+1)) = (_N3(_n4)+0)
+l14((_n4+1)) = l9(_N3(_n4),_n4)
+d4array14(_x1,_x2,_x3,_x4,_x5,0) = d4array(_x1,_x2,_x3,_x4,_x5)
+k14(0) = 0
+j14(0) = 0
+l14(0) = 0
+(_N4>=(-(0)+q))
+(_n4<_N4) -> ((_n4+0)<q)
+d4array16(_x1,_x2,_x3,_x4,_x5,(_n5+1),_n6,_n7,_n8) = d4array16(_x1,_x2,_x3,_x4,_x5,_n5,_n6,_n7,_n8)
+d4array16(_x1,_x2,_x3,_x4,_x5,0,_n6,_n7,_n8) = d4array19(_x1,_x2,_x3,_x4,_x5,_n6,_n7,_n8)
+(_N5(_n6,_n7,_n8)>=(-(0)+u))
+(_n5<_N5(_n6,_n7,_n8)) -> ((_n5+0)<u)
+d4array19(_x1,_x2,_x3,_x4,_x5,(_n6+1),_n7,_n8) = d4array16(_x1,_x2,_x3,_x4,_x5,_N5(_n6,_n7,_n8),_n6,_n7,_n8)
+l19((_n6+1),_n7,_n8) = (_N5(_n6,_n7,_n8)+0)
+d4array19(_x1,_x2,_x3,_x4,_x5,0,_n7,_n8) = d4array23(_x1,_x2,_x3,_x4,_x5,_n7,_n8)
+l19(0,_n7,_n8) = 0
+(_N6(_n7,_n8)>=(-(0)+t))
+(_n6<_N6(_n7,_n8)) -> ((_n6+0)<t)
+d4array23(_x1,_x2,_x3,_x4,_x5,(_n7+1),_n8) = d4array19(_x1,_x2,_x3,_x4,_x5,_N6(_n7,_n8),_n7,_n8)
+k23((_n7+1),_n8) = (_N6(_n7,_n8)+0)
+l23((_n7+1),_n8) = l19(_N6(_n7,_n8),_n7,_n8)
+d4array23(_x1,_x2,_x3,_x4,_x5,0,_n8) = d4array28(_x1,_x2,_x3,_x4,_x5,_n8)
+k23(0,_n8) = 0
+l23(0,_n8) = 0
+(_N7(_n8)>=(-(0)+s))
+(_n7<_N7(_n8)) -> ((_n7+0)<s)
+d4array28(_x1,_x2,_x3,_x4,_x5,(_n8+1)) = d4array23(_x1,_x2,_x3,_x4,_x5,_N7(_n8),_n8)
+k28((_n8+1)) = k23(_N7(_n8),_n8)
+j28((_n8+1)) = (_N7(_n8)+0)
+l28((_n8+1)) = l23(_N7(_n8),_n8)
+d4array28(_x1,_x2,_x3,_x4,_x5,0) = d4array14(_x1,_x2,_x3,_x4,_x5,_N4)
+k28(0) = 0
+j28(0) = 0
+l28(0) = 0
+(_N8>=(-(0)+q))
+(_n8<_N8) -> ((_n8+0)<q)
+
+4. Assumption :
+(u<v)
+(s<n)
+(t<p)
+(q<m)
+
+5. Assertion :
+(d4array28(A,(_n8+0),(_n7+0),(_n6+0),(_n5+0),_N8)==C)
+Output for __VERIFIER_assert:
+Output in prefix notation:
+1. Frame axioms:
+(= (cond1 cond) cond)
+
+2. Output equations:
+(= (_1_FAILED1 cond) (ite (<= cond 0) 1 0))
+(= (__VERIFIER_assert cond) 0)
+
+3. Other axioms:
+
+Output in normal notation:
+1. Frame axioms:
+cond1(cond) = cond
+
+2. Output equations:
+_1_FAILED1(cond) = ite((cond<=0),1,0)
+__VERIFIER_assert(cond) = 0
+
+3. Other axioms:
+
+4. Assumption :
+
+5. Assertion :
+Translation Time--
+8809
+
+----Proving Process----
+
+
+Function Name--main
+ForAll([_x3,_x2,_x5,_x4],Implies(And(_x3>=0,And(_x2>=0,And(_x5>=0,_x4>=0))),d4array14(A, _x2, _x3, _x4, _x5, 0) == d4array(A, _x2, _x3, _x4, _x5)))
+Successfully Proved
+
+ForAll([_x3,_x2,_x5,_x4],Implies(And(_x3>=0,And(_x2>=0,And(_x5>=0,_x4>=0))),d4array9(A, _x2, _x3, _x4, _x5, 0, _k4) == d4array(A, _x2, _x3, _x4, _x5)))
+Successfully Proved
+ForAll([_x3,_x2,_x5,_x4],Implies(And(_x3>=0,And(_x2>=0,And(_x5>=0,_x4>=0))),d4array5(A, _x2, _x3, _x4, _x5, 0, _k3, _k4) == d4array(A, _x2, _x3, _x4, _x5)))
+Successfully Proved
+d4array2(A, _k4, _k3, _k2, 0, 1, _k2, _k3, _k4) == C
+Successfully Proved
+Implies((d4array2(A, _k4, _k3, _k2, _k1, _k1 + 1, _k2, _k3, _k4)==C),(d4array2(A, _k4, _k3, _k2, _k1 + 1, _k1 + 2, _k2, _k3, _k4)==C))
+Successfully Proved
+Implies(ForAll([_k4,_n1,_k3,_k2],Implies(And(And(And(_k4>=0,And(_n1>=0,And(_k3>=0,_k2>=0))),_n1<_L1),_L1>0),d4array2(A, _k4, _k3, _k2, _n1, _n1 + 1, _k2, _k3, _k4) == C)),ForAll([_k4,_n1,_k3,_k2],Implies(And(And(And(And(And(_k4>=0,And(_n1>=0,And(_k3>=0,_k2>=0))),_n1<_L1),_L1>0),_n1<_L1+1),_L1>0),d4array2(A, _k4, _k3, _k2, _n1, _n1 + 1, _k2, _k3, _k4) == C)))
+Successfully Proved
+A
+ForAll([_n1],Implies(_n1>=0,Implies((d4array5(A, _k4, _k3, _k2 - 1, _n1, _k2, _k3, _k4)==d4array(A, _k4, _k3, _k2 - 1, _n1)),(d4array5(A, _k4, _k3, _k2, _n1, _k2 + 1, _k3, _k4)==d4array(A, _k4, _k3, _k2, _n1)))))
+Failed to Prove
+ForAll([_n1],Implies(_n1>=0,d4array5(A, _k4, _k3, 0, _n1, 1, _k3, _k4) == C))
+Successfully Proved
+ForAll([_n1],Implies(_n1>=0,Implies((d4array5(A, _k4, _k3, _k2 - 1, _n1, _k2, _k3, _k4)==C),(d4array5(A, _k4, _k3, _k2, _n1, _k2 + 1, _k3, _k4)==C))))
+Successfully Proved
+A
+ForAll([_n1],Implies(_n1>=0,Implies((d4array9(A, _k4, _k3 - 1, _k2, _n1, _k3, _k4)==d4array(A, _k4, _k3 - 1, _k2, _n1)),(d4array9(A, _k4, _k3, _k2, _n1, _k3 + 1, _k4)==d4array(A, _k4, _k3, _k2, _n1)))))
+Failed to Prove
+ForAll([_n1],Implies(_n1>=0,d4array9(A, _k4, 0, _k2, _n1, 1, _k4) == C))
+Successfully Proved
+ForAll([_n1],Implies(_n1>=0,Implies((d4array9(A, _k4, _k3 - 1, _k2, _n1, _k3, _k4)==C),(d4array9(A, _k4, _k3, _k2, _n1, _k3 + 1, _k4)==C))))
+Successfully Proved
+A
+ForAll([_n1],Implies(_n1>=0,Implies((d4array14(A, _k4 - 1, _k3, _k2, _n1, _k4)==d4array(A, _k4 - 1, _k3, _k2, _n1)),(d4array14(A, _k4, _k3, _k2, _n1, _k4 + 1)==d4array(A, _k4, _k3, _k2, _n1)))))
+Failed to Prove
+ForAll([_n1],Implies(_n1>=0,d4array14(A, 0, _k3, _k2, _n1, 1) == C))
+Successfully Proved
+ForAll([_n1],Implies(_n1>=0,Implies((d4array14(A, _k4 - 1, _k3, _k2, _n1, _k4)==C),(d4array14(A, _k4, _k3, _k2, _n1, _k4 + 1)==C))))
+Successfully Proved
+ForAll([_n4,_n1,_n3,_n2],Implies(And(_n4>=0,And(_n1>=0,And(_n3>=0,_n2>=0))),d4array28(A, _n4, _n3, _n2, _n1, 0) == C))
+Successfully Proved
+
+ForAll([_n4,_n1,_n3,_n2],Implies(And(_n4>=0,And(_n1>=0,And(_n3>=0,_n2>=0))),d4array23(A, _n4, _n3, _n2, _n1, 0, _k8) == C))
+Successfully Proved
+ForAll([_n4,_n1,_n3,_n2],Implies(And(_n4>=0,And(_n1>=0,And(_n3>=0,_n2>=0))),d4array19(A, _n4, _n3, _n2, _n1, 0, _k7, _k8) == C))
+Successfully Proved
+ForAll([_n4,_n1,_n3,_n2],Implies(And(_n4>=0,And(_n1>=0,And(_n3>=0,_n2>=0))),d4array16(A, _n4, _n3, _n2, _n1, 0, _k6, _k7, _k8) == C))
+Successfully Proved
+ForAll([_n4,_n1,_n3,_n2],Implies(And(_n4>=0,And(_n1>=0,And(_n3>=0,_n2>=0))),Implies((d4array16(A, _n4, _n3, _n2, _n1, _k5 + 1, _k6, _k7, _k8)==C),(d4array16(A, _n4, _n3, _n2, _n1, _k5 + 2, _k6, _k7, _k8)==C))))
+Successfully Proved
+A
+ForAll([_n4,_n1,_n3,_n2],Implies(And(_n4>=0,And(_n1>=0,And(_n3>=0,_n2>=0))),Implies((d4array19(A, _n4, _n3, _n2, _n1, _k6, _k7, _k8)==C),(d4array19(A, _n4, _n3, _n2, _n1, _k6 + 1, _k7, _k8)==C))))
+Successfully Proved
+A
+ForAll([_n4,_n1,_n3,_n2],Implies(And(_n4>=0,And(_n1>=0,And(_n3>=0,_n2>=0))),Implies((d4array23(A, _n4, _n3, _n2, _n1, _k7, _k8)==C),(d4array23(A, _n4, _n3, _n2, _n1, _k7 + 1, _k8)==C))))
+Successfully Proved
+A
+ForAll([_n4,_n1,_n3,_n2],Implies(And(_n4>=0,And(_n1>=0,And(_n3>=0,_n2>=0))),Implies((d4array28(A, _n4, _n3, _n2, _n1, _k8)==C),(d4array28(A, _n4, _n3, _n2, _n1, _k8 + 1)==C))))
+Successfully Proved
+=====================Main Proving Process=====================
+
+Axiomes Added
+
+d4array2(A,(_n4+0),(_n3+0),(_n2+0),(_n1+0),_N1(_n2,_n3,_n4),_n2,_n3,_n4) = C
+d4array5(A,(_n4+0),(_n3+0),(_n2+0),(_n1+0),_N2(_n3,_n4),_n3,_n4) = C
+d4array9(A,(_n4+0),(_n3+0),(_n2+0),(_n1+0),_N3(_n4),_n4) = C
+d4array14(A,(_n4+0),(_n3+0),(_n2+0),(_n1+0),_N4) = C
+d4array16(A,(_n4+0),(_n3+0),(_n2+0),(_n1+0),_N5(_n6,_n7,_n8),_n6,_n7,_n8) = C
+d4array19(A,(_n4+0),(_n3+0),(_n2+0),(_n1+0),_N6(_n7,_n8),_n7,_n8) = C
+d4array23(A,(_n4+0),(_n3+0),(_n2+0),(_n1+0),_N7(_n8),_n8) = C
+d4array28(A,(_n4+0),(_n3+0),(_n2+0),(_n1+0),_N8) = C
+
+
+==============================================================
+Successfully Proved
+
+Function Name--__VERIFIER_assert
+Time Taken by Proving Process--
+544211
