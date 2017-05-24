@@ -1080,7 +1080,7 @@ def expr_sub_var_list(e,l1,l2): #e: expr, l1,l2: lists of the same length of exp
 # compute E[n] extend(e,n,excl,v). n is an expr like ['_n1'], excl is a container of strings that are not to be extended
 def extend(e,n,excl,v):
     op = expr_op(e)
-    x = [n] if is_program_var(op,v) and not (op in excl) else []
+    x = [n] if (is_program_var(op,v) and not (op in excl)) or '__VERIFIER_nondet' in op else []
     return expres(op, list(extend(e1,n,excl,v) for e1 in expr_args(e)) + x)
 
 
@@ -1645,6 +1645,16 @@ def wff2z3_update_postCond(w):
                 else:
                     return 'ForAll(['+list_var_str+'],Implies('+list_cstr_str+','+expression+'))'
 
+        elif w[0]=='c1':
+         	var_cstr_map={}
+	      	equations=[]
+	    	expression=expr2z3_update(w[1],var_cstr_map)
+	    	list_var_str=qualifier_list(var_cstr_map.keys())
+	    	list_cstr_str=cstr_list(var_cstr_map.values())
+	    	if list_var_str is not None and list_cstr_str is not None:
+        		 return 'ForAll(['+list_var_str+'],Implies('+list_cstr_str+','+expression+'))'
+        	else:
+        		 return expression       
         else:
             return expression
 
@@ -2051,6 +2061,7 @@ def translate1(p,v,flag):
             
             
             f,o,a,cm = getDummyFunction(f,o,a,cm)
+            #f,o,a,cm = update__VERIFIER_nondet(f,o,a,cm)
             
     
             f,o,a,assert_list,assume_list=getAssertAssume(f,o,a,cm)
@@ -2225,7 +2236,10 @@ def translateProgram(p,v,flag):
 
 # assignment translation: p a program and v a set of program variables
 
+map___VERIFIER_nondet={}
+
 def translateAssign(p,v,flag): #p=[l,'=',left,right]
+    global map___VERIFIER_nondet
     if p[1] != '=':
         print('Not an assignment')
         return
@@ -2233,6 +2247,7 @@ def translateAssign(p,v,flag): #p=[l,'=',left,right]
     op = left[0] #the functor in left
     arity = len(left)-1 #arity of op
     right = p[3] #right side of the assignment
+    right = update__VERIFIER_nondet_stmt(right,map___VERIFIER_nondet)
     out=OUT if p[0] == '-1' else LABEL+p[0]
     out_axioms = {}
     frame_axioms = {}
@@ -7471,17 +7486,14 @@ def prove_assert_tactic4(axiom,witnessXml):
 			
 	#print '################'
         #print array_degree_map
+        #print array_init_map
         #print '################'
 
 	for [x,k,l] in axiom.getVfact():
 		if k==0 and l[0]=='array' and isArrayFinal(x)==False and not(x=='main'):
-                        #print '---------------'
-                        #print x
-                        #print k
-                        #print l
-                        #print '---------------'
-			array_list.append(x)
-			array_fun_map[x]=array_init_map[str(array_degree_map[x])]
+                        if str(array_degree_map[x]) in array_init_map.keys():
+                            array_list.append(x)
+                            array_fun_map[x]=array_init_map[str(array_degree_map[x])]
         var_list=axiom.getConst_var_map().keys()
         f_count=0
         for x in axiom.getOutput_equations():
@@ -7847,6 +7859,7 @@ def prove_assert_tactic4(axiom,witnessXml):
                                                                     writeLogFile( "j2llogs.logs" ,'\nAxiomes Added--'+wff2z3_update(query_e7)+'\n')
                                                                     instant_eq.append(query_e7)
                                                                     add_equation_d.append(query_e7)
+                                                                
 				        		else:
 				        			writeLogFile( "j2llogs.logs" ,'\nAxiomes Added--'+wff2z3_update(query_e5)+'\n')
 				        			instant_eq.append(query_e5)
@@ -7978,10 +7991,15 @@ def prove_assert_tactic4(axiom,witnessXml):
                                                 				add_equation_d.append(query_ret[e_array][5])
                                                 				instant_eq.append(query_ret[e_array][5])
                                     			else:
+                                                                #k_map={}
+                                                                #getBigk(query_ret[e_array][1][1],k_map)
+                                                                #print '----------------------------'
+                                                                #print len(k_map.keys())
+                                                                #print '----------------------------'
                                         			writeLogFile( "j2llogs.logs" ,'\nAxiomes Added--'+wff2z3_update(query_ret[e_array][5])+'\n')
                                         			add_equation_d.append(query_ret[e_array][5])
                                         			instant_eq.append(query_ret[e_array][5])
-        #return
+        #return "Failed to prove"
         
 	post_condition[str_value]=word
 	for postcondition in post_condition.keys():
@@ -7994,6 +8012,9 @@ def prove_assert_tactic4(axiom,witnessXml):
 		temp_post_condition=[]
 		print '\n'
 		#temp_post_condition.append(wff2z3_update(post_condition[postcondition]))
+                if post_condition[postcondition][0]=='s0':
+                    post_condition[postcondition][0]='c1'
+                
                 temp_post_condition.append(wff2z3_update_postCond(post_condition[postcondition]))
 		
 		writeLogFile( "j2llogs.logs" , getTimeStamp()+"\nCommand--Prove \n"+"\nParameters--\n"+"\n Pre Condition--"+str(pre_condition)+"\n Post Condition--"+str(temp_post_condition)+"\n Strategy--Automatically Deriving Addition Axoimes\n")
@@ -8002,6 +8023,7 @@ def prove_assert_tactic4(axiom,witnessXml):
                 
 		status=tactic1_update(axiom.getFrame_axioms(),o_instant_eq,instant_eq,pre_condition,temp_post_condition,update_facts,axiom.getInputvariable(),constraint_list,witnessXml)	
                 
+                #status="Failed To prove"
                 writeLogFile( "j2llogs.logs" ,'\nResult --'+status+'\n')
                 
                 print '=============================================================='
@@ -8922,6 +8944,8 @@ def recInductionOnN(instant_eq,post_condition,cons_var_map,fun_map,axiom,witness
 	
 def update_postCondition(e,array_map): 
 	if isArrayFunction(e[:1][0])==True:
+                if len(array_map.keys())==0:
+                    return e
 		value_list=array_map[e[:1][0]]
 		parameter_list=value_list[1]
 		new_e=copy.deepcopy(value_list[0][4])
@@ -8960,6 +8984,19 @@ def expand_postCondition(e,fun_map):
 		return e[:1]+list(expand_postCondition(x,fun_map) for x in expr_args(e))
 
 
+
+
+def getBigk(e,k_map):
+	args=expr_args(e)
+    	op=expr_op(e)
+    	if len(args)==0:
+    		if op.startswith('_k'):
+        		k_map[op]=op
+    	else:
+                if op.startswith('_k'):
+                    k_map[expr2string1(e)]=e
+                for x in expr_args(e):
+                    getBigk(x,k_map)
 
 
 def getBigN(e,N_map,n_map):
@@ -9918,6 +9955,7 @@ def programTransformation(function_body,functionMap):
     global continue_count
     global new_variable
     global dummyCount
+    global count__VERIFIER_nondet
     
     new_variable={}
         
@@ -10086,6 +10124,10 @@ def programTransformation(function_body,functionMap):
        		update_statements.append(temp)
     for statement in statements:
     	update_statements.append(statement)
+        
+    #count__VERIFIER_nondet=0
+    
+    #update_statements=organize__VERIFIER_nondet(update_statements)
 
     return update_statements
 
@@ -10444,10 +10486,12 @@ def prove_auto(file_name):
         global assert_count
         global defineMap
         global defineDetaillist
+        global map___VERIFIER_nondet
         fail_count=0
         error_count=0
         assume_count=0
         assert_count=0
+        map___VERIFIER_nondet={}
 	try:
 		fd = open(file_name)
 		text = "".join(fd.readlines())
@@ -10632,7 +10676,7 @@ def prove_auto(file_name):
 	    		
 	    		new_variable.clear()
 	    		
-	    		statements=substituteFunBlock(statements,functionvarmap,medthod,externalvarmap)
+	    		#statements=substituteFunBlock(statements,functionvarmap,medthod,externalvarmap)
 	    		
 	    		update_statements=[]
 			        
@@ -10757,7 +10801,13 @@ def prove_auto(file_name):
       
         
         programeIF.append(programe_array)
-           
+        
+        #print '--------------------------------'
+        #print programeIF
+        #print '--------------------------------'
+        #print variables_list_map
+        #print '--------------------------------'
+        
         f_map,o_map,a_map,cm_map,assert_map,assume_map=translate1(programeIF,variables_list_map,1)
         
 
@@ -10775,18 +10825,20 @@ def prove_auto(file_name):
         		vfacts,constraints=getVariFunDetails(f,o,a,addition_array[1],addition_array[2])
         		
         		vfacts2=getVariFunDetails2(f,o,a,addition_array[1])
-   
+                        
         		vfacts=[]
         		
         		for vfact in vfacts2:
         			vfacts.append(vfacts2[vfact])
+
         		for element in function_vfact_map.keys():
         			function_vfact_list=function_vfact_map[element]
         			for x in function_vfact_list:
-        				vfacts.append(x)
+                                        if x[0] not in vfacts2.keys():
+                                            vfacts.append(x)
         		axiom=axiomclass(f,o,a,membermethod.getInputvar(), vfacts, constraints,cm,assert_list,assume_list,addition_array[1])
         		axiomeMap[key]=axiom
-
+                #return
                 end_time=current_milli_time()
                 print "Translation Time--"
 		print end_time-start_time
@@ -12107,6 +12159,36 @@ def organizeStatementToObject_C(statements):
 
 """
 
+Organization of AST 
+
+"""
+
+
+               
+def organize__VERIFIER_nondet_C(statements,count):
+	expressions=[]
+	for statement in statements:
+                if type(statement) is c_ast.Assignment:
+			expressions.append(expression)
+                elif type(statement) is c_ast.While:
+                    blockexpressions=[]
+                    if statement.stmt is not None:
+			count,blockexpressions=organize__VERIFIER_nondet_C(statement.stmt.block_items,count)
+		    block=blockclass( blockexpressions, statement.cond, count , True, degree)
+		    expressions.append(block)
+		else:
+			if type(statement) is c_ast.If:
+				count,ifclass=ifclassCreator_C(statement, degree, count)
+				expressions.append(ifclass)
+			else:
+				count=count+1
+				expression=expressionclass(statement, count, True,degree)
+				expressions.append(expression)
+					
+     	return expressions,count
+
+"""
+
 Conditionl Loop to a Array of Statement Compatible to Translator Program 
 IfClass Creator
 
@@ -12462,7 +12544,7 @@ def expressionCreator_C(statement):
 				if parameter=='':
 			        	parameter =expressionCreator_C(param)
 			        else:
-                                	parameter =','+expressionCreator_C(param)
+                                	parameter +=','+expressionCreator_C(param)
 			else:
 				if type(statement) is c_ast.ArrayRef:
 					parameter_list.append('int')
@@ -17301,7 +17383,17 @@ def getAssertAssume(f,o,a,cm):
                                         if new_word is not None and const_var is not None:
                                             new_word=copy.deepcopy(new_word)
                                             new_word[-1]=eval("['"+const_var+"']")
-        				x[4][2]=assert_filter(x[4][2],x[3],new_word,cm)
+                                        list_conditin=getConditions(o,a,new_word)
+                                        con_stmt=None
+                                        if list_conditin is not None:
+                                            con_stmt=constructAndOrlist(list_conditin,'and')
+                                        x[4][2]=assert_filter(x[4][2],x[3],new_word,cm)
+                                        if  con_stmt is not None:
+                                            new_stmt=[]
+                                            new_stmt.append('implies')
+                                            new_stmt.append(con_stmt)
+                                            new_stmt.append(x[4][2])
+                                            x[4][2]=new_stmt
         				assert_list.append(x)
         				new_w = copy.deepcopy(x)
         				new_w[4]=copy.deepcopy(x[4][3])
@@ -17449,10 +17541,61 @@ def assert_filter(e,e1,e2,cm): #e,e1,e2: expr
 		return e[:1]+list(assert_filter(x,e1,e2,cm) for x in expr_args(e))
 
 
-
+def getConditions(o,a,e):
+    for x in o:
+        list_condition=[]
+        get_conditions(o[x],e,list_condition)
+        if len(list_condition) >0:
+            return list_condition
+    for x in a:
+        if x[0]=='i0':
+            list_condition=[]
+            get_conditions(x[3],e,list_condition)
+            if len(list_condition) >0:
+                return list_condition
+    return None
 
         
-        
+def get_conditions(e,e_el,list_condition):
+        if e[:1]==['ite']:
+        	temp=[]
+        	count=0
+        	cond=None
+        	for x in expr_args(e):
+                        get_conditions(x,e_el,list_condition)
+        		if count==0:
+        			cond=x
+        		elif count==1:
+        			if x==e_el and cond is not None:
+                                    list_condition.append(cond) 
+        		elif count==2:
+                                if x==e_el and cond is not None:
+                                    con=[]
+                                    con.append('not')
+                                    con.append(cond)
+                                    list_condition.append(cond) 
+        		count=count+1
+        else:
+        	for x in expr_args(e):
+                    get_conditions(x,e_el,list_condition)       
+
+
+def constructAndOrlist(e_array,operator):
+	if len(e_array)>2:
+                cond=[]
+                cond.append(operator)
+                cond.append(e_array[0])
+                cond.append(constructAndOr(e_array[1:],operator))
+		return cond
+	if len(e_array)==2:
+                cond=[]
+                cond.append(operator)
+                cond.append(e_array[0])
+                cond.append(constructAndOr(e_array[1:],operator))
+		return cond
+	else:
+		return e_array[0]
+
 
 #
 #Module to handle pointer 
@@ -17990,6 +18133,37 @@ def getDummyFunction(f,o,a,cm):
 	return f,o,a,cm
 
 
+#def update__VERIFIER_nondet(f,o,a,cm):
+#    for eq in a:
+#        if eq[0]=='i1':
+#            var_cstr_map={}
+#            lhs=expr2z3(eq[3],var_cstr_map)
+#            eq[4]=update__VERIFIER_nondet_stmt(eq[4],var_cstr_map)
+#    return f,o,a,cm
+
+
+
+
+def update__VERIFIER_nondet_stmt(e,var_map):
+    args=expr_args(e)
+    if '__VERIFIER_nondet' in e[0] and len(args)==0:
+        if e[0] in var_map.keys():
+            VC=var_map[e[0]]
+            VC=VC+1
+            key=e[0]
+            var_map[key]=VC
+            e[0] = e[0]+str(VC)
+            return e
+        else:
+            key=e[0]
+            var_map[key]=2
+            e[0] = e[0]+str(2)
+            return e
+    else:
+        return e[:1]+list(update__VERIFIER_nondet_stmt(x,var_map) for x in expr_args(e))
+
+
+
 
 #Get all typedefination
 
@@ -18429,6 +18603,112 @@ def change_var_name_stmt(statement):
                         return statement
                 else:
                     return statement
+
+
+
+count__VERIFIER_nondet=0
+
+
+def organize__VERIFIER_nondet(statements):
+        global count__VERIFIER_nondet
+	update_statements=[]
+	for statement in statements:
+		if type(statement) is c_ast.Decl:
+			if type(statement.type) is c_ast.ArrayDecl:
+                                update_statements.append(statement)
+			else:
+                                init_values=None
+                                if statement.init is not None:
+                                    init_values=copy.deepcopy(statement.init)
+                                statement=c_ast.Decl(name=statement.name, quals=statement.quals, storage=statement.storage, funcspec=statement.funcspec, type=c_ast.TypeDecl(declname=statement.type.declname, quals=statement.type.quals, type=statement.type.type), init=None, bitsize=statement.bitsize)
+                                update_statements.append(statement)
+                                if init_values is not None:
+                                        update_statements.append(c_ast.Assignment(op='=',lvalue=c_ast.ID(name=statement.name),rvalue=organize__VERIFIER_nondet_stmt(init_values)))
+		elif type(statement) is c_ast.If:
+			update_statements.append(organize__VERIFIER_nondetIf(statement))
+		elif type(statement) is c_ast.While:
+			if statement.stmt.block_items is not None:
+				update_statements.append(c_ast.While(cond=organize__VERIFIER_nondet_stmt(statement.cond),stmt=c_ast.Compound(block_items=organize__VERIFIER_nondet(statement.stmt.block_items))))	
+			else:
+				update_statements.append(c_ast.While(cond=organize__VERIFIER_nondet_stmt(statement.cond),stmt=c_ast.Compound(block_items=statement.stmt.block_items)))	
+		elif type(statement) is c_ast.Assignment:
+			update_statements.append(c_ast.Assignment(op=statement.op,lvalue=organize__VERIFIER_nondet_stmt(statement.lvalue),rvalue=organize__VERIFIER_nondet_stmt(statement.rvalue)))
+		else:
+			update_statements.append(statement)
+	return update_statements
+	
+
+
+	
+def organize__VERIFIER_nondetIf(statement):
+    global count__VERIFIER_nondet
+    new_iftrue=None
+    new_iffalse=None
+    if type(statement) is c_ast.If:
+        if type(statement.iftrue) is c_ast.Assignment:
+        	new_iftrue=c_ast.Assignment(op=statement.iftrue.op,lvalue=organize__VERIFIER_nondet_stmt(statement.iftrue.lvalue),rvalue=organize__VERIFIER_nondet_stmt(statement.iftrue.rvalue))
+        elif type(statement.iftrue) is c_ast.Compound:
+            if statement.iftrue.block_items is not None:
+                new_block_items=change_var_name(statement.iftrue.block_items)
+                new_iftrue=c_ast.Compound(block_items=new_block_items)
+            else:
+                new_iftrue=statement.iftrue
+        else:
+            new_iftrue=statement.iftrue
+       
+       
+        if type(statement.iffalse) is c_ast.Assignment:
+		new_iftrue=c_ast.Assignment(op=statement.iffalse.op,lvalue=organize__VERIFIER_nondet_stmt(statement.iffalse.lvalue),rvalue=organize__VERIFIER_nondet_stmt(statement.iffalse.rvalue))
+	elif type(statement.iffalse) is c_ast.Compound:
+		if statement.iffalse.block_items is not None:
+	        	new_block_items=change_var_name(statement.iffalse.block_items)
+	                new_iffalse=c_ast.Compound(block_items=new_block_items)
+	        else:
+	                new_iffalse=statement.iffalse
+	elif type(statement.iffalse) is c_ast.If:
+		new_iffalse=organize__VERIFIER_nondetIf(statement.iffalse)
+	else:
+        	new_iffalse=statement.iffalse
+        	
+    return c_ast.If(cond= organize__VERIFIER_nondet_stmt(statement.cond), iftrue=new_iftrue, iffalse=new_iffalse)
+
+
+def organize__VERIFIER_nondet_stmt(statement):
+        global count__VERIFIER_nondet
+	if type(statement) is c_ast.BinaryOp:
+		if type(statement.left) is c_ast.ID:
+			stmt_left=organize__VERIFIER_nondet_stmt(statement.left)
+		else:
+			stmt_left=organize__VERIFIER_nondet_stmt(statement.left)
+		
+		if type(statement.right) is c_ast.ID:
+			stmt_right=organize__VERIFIER_nondet_stmt(statement.right)
+		else:
+			stmt_right=organize__VERIFIER_nondet_stmt(statement.right)
+		return c_ast.BinaryOp(op=statement.op, left=stmt_left, right=stmt_right)
+	elif type(statement) is c_ast.UnaryOp:
+		if type(statement.expr) is c_ast.ID:
+			stmt=organize__VERIFIER_nondet_stmt(statement.expr)
+		else:
+			stmt=organize__VERIFIER_nondet_stmt(statement.expr)
+		return c_ast.UnaryOp(op=statement.op, expr=stmt)
+	elif type(statement) is c_ast.ID:
+		if '__VERIFIER_nondet' in statement.name:
+                        count__VERIFIER_nondet=count__VERIFIER_nondet+1
+			return c_ast.ID(name=statement.name+str(count__VERIFIER_nondet))
+		else:
+			return statement
+	elif type(statement) is c_ast.FuncCall:
+                if '__VERIFIER_nondet' in statement.name.name:
+                    count__VERIFIER_nondet=count__VERIFIER_nondet+1
+                    statement.name=c_ast.ID(name=statement.name.name+str(count__VERIFIER_nondet))
+                return statement
+	else:
+                return statement
+
+
+
+
 
 
 
