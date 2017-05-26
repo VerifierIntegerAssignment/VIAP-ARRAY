@@ -1491,7 +1491,7 @@ def wff2z3_update(w):
             	if list_cstr_str is not None:
             		constant=w[2].replace('n','L')
             		list_cstr_str='And(And('+list_cstr_str+','+w[2]+'<'+constant+'),'+constant+'>0'+')'
-            		list_cstr_str2='And(And('+list_cstr_str+','+w[2]+'<'+constant+'+1),'+constant+'>0'+')'
+            		list_cstr_str2='And(And('+list_cstr_str2+','+w[2]+'<'+constant+'+1),'+constant+'>0'+')'
             	if 'Or' not in lhs and 'And' not in lhs and 'If' not in lhs and '/' not in lhs:
             		lhs=convert_pow_op_fun(simplify_expand_sympy(lhs))
             	if 'Or' not in rhs and 'And' not in rhs and 'If' not in rhs and '/' not in rhs:
